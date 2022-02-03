@@ -1,3 +1,3 @@
 <template>
-    <h1>haha</h1>
+  <div>文档</div>
 </template>
