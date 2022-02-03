@@ -1,6 +1,7 @@
 {
   "name": "ui_wheel",
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "license": "MIT",
   "scripts": {
     "dev": "vite --port 8888 --host",
     "build": "vue-tsc --noEmit && vite build",
