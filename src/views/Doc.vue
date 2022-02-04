@@ -1,7 +1,9 @@
 <template>
     <NavBar />
     <AsideBar />
-    <router-view class = "content" />
+    <main class = "content">
+      <router-view />
+    </main>
 </template>
 
 <script lang = "ts" setup>
@@ -12,8 +14,6 @@
   @import "../assets/style/helper";
 
   .content {
-    width: 100%;
-    height: 100%;
 
     @media (max-width: $move-device-width) {
       padding-left: 24px;

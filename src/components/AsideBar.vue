@@ -1,14 +1,10 @@
 <template>
   <aside v-if = "isPC || asideVisible">
-    <h1>组件列表</h1>
-    <div class = "linkList">
-      <router-link active-class = "selected" class = "link" to = "/doc/switch" @click = "onAsideClick"
-      >Switch</router-link>
-      <router-link active-class = "selected" class = "link" to = "/doc/button" @click = "onAsideClick"
-      >Button</router-link>
-      <router-link active-class = "selected" class = "link" to = "/doc/dialog" @click = "onAsideClick"
-      >Dialog</router-link>
-      <router-link active-class = "selected" class = "link" to = "/doc/tabs" @click = "onAsideClick">Tabs</router-link>
+    <div class = "linkGroup">
+      <h1>组件列表</h1>
+      <router-link v-for = "(component, index) in componentList" :key = "index" :to = "'/doc/' + component.name"
+                   active-class = "selected" class = "link"
+      >{{ component.name }}</router-link>
     </div>
   </aside>
 </template>
@@ -18,42 +14,41 @@
  const asideVisible = inject<Ref<boolean>>('asideVisible');
  const isPC = inject<Ref<boolean>>('isPC');
 
- const onAsideClick = (e: any) => {
-   e.currentTarget.classList.add('selected');
-   console.log(e.target.classList);
- };
+ const componentList = [
+   { name: 'Switch' },
+   { name: 'Button' },
+   { name: 'Dialog' },
+   { name: 'Tabs' },
+ ];
 </script>
 
 <style lang = "scss" scoped>
   @import "../assets/style/helper";
 
   aside {
-    display: block;
     position: fixed;
     box-shadow: 0 0 16px #00000011;
     background: #FFF;
     padding: 0 16px;
-    height: 100vh;
+    height: 100%;
     width: $width-aside-bar;
     overflow: scroll;
 
-    > h1 {
-      margin-top: 36px;
+    > .linkGroup {
       color: #404244;
-      font-size: 20px;
-      line-height: 1;
-    }
+      margin-top: 24px;
 
-    > .linkList {
-      color: #404244;
-      font-size: 16px;
-      margin-top: 16px;
+      > h1 {
+        font-size: 20px;
+        line-height: 2;
+      }
 
-      .link {
+      > .link {
         display: block;
-        margin-bottom: 12px;
-        padding: 6px 12px;
-
+        padding: 8px 12px;
+        font-size: 16px;
+        line-height: 1;
+        margin-top: 12px;
 
         &.selected {
           color: $color-highlight;
