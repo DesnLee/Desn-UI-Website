@@ -1,14 +1,22 @@
 <template>
-  <button :class = "{checked:value}" @click = "toggle"><span></span></button>
-  <div>{{ value }}</div>
+  <button :class = "[{checked: value}, `des-${ size }-switch`]" :style = "value ? `background:${color}` : null"
+          @click = "toggle"
+  >
+    <span class = "circle"></span>
+    <span v-if = "text" class = "text">{{ text[!value] }}</span>
+  </button>
 </template>
 
 <script lang = "ts" setup>
   import Button from './Button.vue';
 
   const props = defineProps({
-    value: Boolean
+    value: Boolean,
+    size: String,
+    color: String,
+    text: Object
   });
+
   const emit = defineEmits([ 'update:value' ]);
   const toggle = () => {
     emit('update:value', !props.value);
@@ -16,55 +24,184 @@
 </script>
 
 <style lang = "scss" scoped>
-  $btn-h: 44px;
-  $btn-w: 72px;
-  $gap: 4px;
-  $span-wh: $btn-h - $gap * 2;
+  $btn-h-small: 24px;
+  $btn-w-small: 40px;
+  $gap-small: 2px;
+  $span-wh-small: $btn-h-small - $gap-small * 2;
+
+  $btn-h-normal: 32px;
+  $btn-w-normal: 56px;
+  $gap-normal: 3px;
+  $span-wh-normal: $btn-h-normal - $gap-normal * 2;
+
+  $btn-h-large: 40px;
+  $btn-w-large: 72px;
+  $gap-large: 4px;
+  $span-wh-large: $btn-h-large - $gap-large * 2;
 
   button {
+    display: inline-block;
+
+    &.des-small-switch {
+      width: $btn-w-small;
+      height: $btn-h-small;
+      border-radius: $btn-h-small/2;
+      box-shadow: inset 0 0 (2 * $gap-small) #40424455;
+
+      > .circle {
+        left: $gap-small;
+        top: $gap-small;
+        width: $span-wh-small;
+        height: $span-wh-small;
+        border-radius: $span-wh-small/2;
+        box-shadow: 0 0 (2 * $gap-small) #40424455;
+
+        &::after {
+          width: $btn-h-small/4;
+          height: $btn-h-small/4;
+        }
+      }
+
+      &.checked > .circle {
+        left: calc(100% - #{$span-wh-small + $gap-small});
+      }
+
+      .text {
+        font-size: 12px;
+        top: ($btn-h-small - 12px) / 2;
+        left: calc(100% - #{24px + $gap-small});
+      }
+
+      &.checked > .text {
+        left: $gap-small;
+        color: #FFF;
+      }
+    }
+
+    &.des-normal-switch {
+      width: $btn-w-normal;
+      height: $btn-h-normal;
+      border-radius: $btn-h-normal/2;
+      box-shadow: inset 0 0 (2 * $gap-normal) #40424455;
+
+      > .circle {
+        left: $gap-normal;
+        top: $gap-normal;
+        width: $span-wh-normal;
+        height: $span-wh-normal;
+        border-radius: $span-wh-normal/2;
+        box-shadow: 0 0 (2 * $gap-normal) #40424455;
+
+        &::after {
+          width: $btn-h-normal/3;
+          height: $btn-h-normal/3;
+        }
+      }
+
+      &.checked > .circle {
+        left: calc(100% - #{$span-wh-normal + $gap-normal});
+      }
+
+      .text {
+        font-size: 14px;
+        top: ($btn-h-normal - 14px) / 2;
+        left: calc(100% - #{28px + $gap-normal});
+      }
+
+      &.checked > .text {
+        left: $gap-normal;
+        color: #FFF;
+      }
+    }
+
+    &.des-large-switch {
+      width: $btn-w-large;
+      height: $btn-h-large;
+      border-radius: $btn-h-large/2;
+      box-shadow: inset 0 0 (2 * $gap-large) #40424455;
+
+      > .circle {
+        left: $gap-large;
+        top: $gap-large;
+        width: $span-wh-large;
+        height: $span-wh-large;
+        border-radius: $span-wh-large/2;
+        box-shadow: 0 0 (2 * $gap-large) #40424455;
+
+        &::after {
+          width: $btn-h-large/3;
+          height: $btn-h-large/3;
+        }
+      }
+
+      &.checked > .circle {
+        left: calc(100% - #{$span-wh-large + $gap-large});
+      }
+
+      .text {
+        font-size: 15px;
+        top: ($btn-h-large - 15px) / 2;
+        left: calc(100% - #{30px + $gap-large});
+      }
+
+      &.checked > .text {
+        left: $gap-large;
+        color: #FFF;
+      }
+    }
+
     position: relative;
-    width: $btn-w;
-    height: $btn-h;
     background: #30313324;
     border: none;
-    border-radius: $btn-h/2;
-    box-shadow: inset 0 0 (2 * $gap) #40424455;
     transition: background .25s ease-in-out;
+
+    &:active .circle {
+      transform: scaleX(120%);
+    }
+
+    &:hover {
+      animation: shine 1s ease-out infinite;
+    }
 
     &:focus {
       outline: none;
     }
 
-    span {
+    &.checked {
+      background: #42B983;
+    }
+
+    > .circle {
+      z-index: 2;
       position: absolute;
-      left: $gap;
-      top: $gap;
-      width: $span-wh;
-      height: $span-wh;
       background: #FFF;
-      border-radius: $span-wh/2;
-      box-shadow: 0 0 (2 * $gap) #40424455;
       display: flex;
       justify-content: center;
       align-items: center;
-      transition: left .25s ease-in-out;
+      transition: all .25s ease-in-out;
 
       &::after {
         display: inline-block;
         content: '';
-        width: $btn-h/3;
-        height: $btn-h/3;
         border: 2px solid #30313311;
         border-radius: 50%;
       }
     }
 
-    &.checked {
-      background: #42B983;
+    > .text {
+      position: absolute;
+      line-height: 1;
+      color: #909399;
+      transition: left .25s ease-in-out;
+    }
+  }
 
-      > span {
-        left: calc(100% - #{$span-wh + $gap});
-      }
+  @keyframes shine {
+    0% {
+      box-shadow: 0 0 0 #00000066;
+    }
+    100% {
+      box-shadow: 0 0 0 8px #00000000;
     }
   }
 </style>
