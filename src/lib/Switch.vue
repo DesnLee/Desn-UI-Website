@@ -159,12 +159,14 @@
       transform: scaleX(120%);
     }
 
-    &:hover {
-      animation: shine 1s ease-out infinite;
-    }
-
     &:focus {
       outline: none;
+    }
+
+    @media (min-width: 700px) {
+      &:hover {
+        animation: shine 1s ease-out infinite;
+      }
     }
 
     &.checked {
