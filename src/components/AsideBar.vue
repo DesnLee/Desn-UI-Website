@@ -30,6 +30,7 @@
   @import "../assets/style/helper";
 
   aside {
+    z-index: 10;
     position: fixed;
     box-shadow: 0 0 16px #00000011;
     background: #FFF;

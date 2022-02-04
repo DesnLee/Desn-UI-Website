@@ -28,6 +28,7 @@
   @import "../assets/style/helper";
 
   nav {
+    z-index: 11;
     position: sticky;
     top: 0;
     width: 100%;
