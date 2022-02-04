@@ -1,8 +1,6 @@
 <template>
-  <div>
     <div>switch</div>
-  </div>
-  </template>
+</template>
 
 <script lang = "ts">
 
