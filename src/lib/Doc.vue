@@ -1,10 +1,10 @@
 <template>
-  <Doc />
+<div>开始起飞！</div>
 </template>
 
 <script lang = "ts" setup>
 
-import Doc from '../../lib/Doc.vue';</script>
+</script>
 
 <style lang = "scss" scoped>
 

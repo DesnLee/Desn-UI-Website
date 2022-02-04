@@ -1,8 +1,14 @@
 <template>
-  <div>tab</div>
+  <Tabs />
 </template>
 
-<script lang = "ts"></script>
+<script lang = "ts">
+import Tabs from '../../lib/Tabs.vue';
+
+export default {
+  components: { Tabs }
+};
+</script>
 
 <style lang = "scss" scoped>
 
