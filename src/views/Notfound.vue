@@ -1,4 +1,5 @@
 <template>
+  <NavBar />
   <div>
     <div class = "pic-wrapper">
       <Icon name = "notfound" />
@@ -11,7 +12,8 @@
 </template>
 
 <script lang = "ts" setup>
-import Icon from '../components/Icon.vue';</script>
+import Icon from '../components/Icon.vue';
+import NavBar from '../components/NavBar.vue';</script>
 
 <style lang = "scss" scoped>
   @import "../assets/style/helper.scss";
