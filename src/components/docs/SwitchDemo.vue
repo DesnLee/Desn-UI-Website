@@ -17,9 +17,9 @@
   import { ref } from 'vue';
   import Switch from '../../lib/Switch.vue';
 
-  const largeValue = ref(false);
-  const normalValue = ref(false);
-  const smallValue = ref(false);
+  const largeValue = ref<boolean>(false);
+  const normalValue = ref<boolean>(false);
+  const smallValue = ref<boolean>(false);
   const cnText = {
     'true': '开启',
     'false': '关闭'

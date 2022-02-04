@@ -1,6 +1,6 @@
 <template>
-  <button :class = "[{ checked: value }, `des-${size}-switch`]"
-          :style = "{ background: value ? highColor : '#30313324' }" @click = "toggle"
+  <button :class = "[{ checked: value }, `des-${size}-switch`]" :style = "{ background: value ? color : normalColor }"
+          @click = "toggle"
   >
     <span class = "circle"></span>
     <span v-if = "text" class = "text">{{ text[!value + ''] }}</span>
@@ -11,13 +11,14 @@
 import Button from './Button.vue';
 
 const props = defineProps({
-  value: Boolean,
-  size: String,
-  color: String,
-  text: Object
+  value: { type: Boolean, default: false },
+  size: { type: String, default: 'normal' },
+  color: { type: String, default: '#42B983' },
+  text: { type: Object }
 });
 
-const highColor = props.color ? props.color : '#42B983';
+const normalColor = '#30313324';
+
 const emit = defineEmits([ 'update:value' ]);
 const toggle = () => {
   emit('update:value', !props.value);
