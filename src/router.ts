@@ -18,7 +18,7 @@ export default createRouter({
       path: '/doc',
       component: Doc,
       children: [
-        { path: '', component: DocDemo },
+        { path: 'start', component: DocDemo },
         { path: 'switch', component: SwitchDemo },
         { path: 'button', component: ButtonDemo },
         { path: 'dialog', component: DialogDemo },

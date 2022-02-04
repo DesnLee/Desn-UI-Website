@@ -5,7 +5,7 @@
     <h3>一个极简的 Vue.js v3 UI 组件库</h3>
     <p class = "actions">
       <a class = "link" href = "https://github.com" target = "_blank">github</a>
-      <router-link class = "link" to = "/doc">起步</router-link>
+      <router-link class = "link" to = "/doc/start">起步</router-link>
     </p>
   </div>
 </template>

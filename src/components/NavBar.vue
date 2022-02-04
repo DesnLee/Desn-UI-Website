@@ -6,7 +6,7 @@
     </router-link>
     <div class = "link-wrapper">
       <router-link to = "/">首页</router-link>
-      <router-link to = "/doc">文档</router-link>
+      <router-link to = "/doc/start">文档</router-link>
     </div>
   </nav>
 </template>

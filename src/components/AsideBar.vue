@@ -1,9 +1,13 @@
 <template>
   <aside v-if = "isPC || asideVisible">
     <div class = "linkGroup">
+      <h1>起步</h1>
+      <router-link active-class = "selected" class = "link" to = "/doc/start">项目介绍</router-link>
+    </div>
+    <div class = "linkGroup">
       <h1>组件列表</h1>
-      <router-link v-for = "(component, index) in componentList" :key = "index" :to = "'/doc/' + component.name"
-                   active-class = "selected" class = "link"
+      <router-link v-for = "(component, index) in componentList" :key = "index"
+                   :to = "'/doc/' + component.name.toLowerCase()" active-class = "selected" class = "link"
       >{{ component.name }}</router-link>
     </div>
   </aside>
