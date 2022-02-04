@@ -9,10 +9,9 @@
   const props = defineProps({
     value: Boolean
   });
-  const emit = defineEmits([ 'input' ]);
-
+  const emit = defineEmits([ 'update:value' ]);
   const toggle = () => {
-    emit('input', !props.value);
+    emit('update:value', !props.value);
   };
 </script>
 
