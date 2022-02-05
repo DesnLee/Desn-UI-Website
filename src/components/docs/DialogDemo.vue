@@ -33,6 +33,3 @@
     console.log('cancel');
   };
 </script>
-
-<style lang = "scss" scoped>
-</style>

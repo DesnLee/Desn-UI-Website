@@ -1,34 +1,36 @@
 <template>
   <template v-if = "visible">
-    <div class = "des-dialog-overlay" @click.self = "clickOverlay">
-      <div class = "des-dialog-wrapper">
-        <div class = "des-dialog">
-          <div class = "des-dialog-close-icon" @click = "close">
-            <svg height = "16" viewBox = "0 0 1024 1024" width = "16" xmlns = "http://www.w3.org/2000/svg"
-            ><path
-              d = "M92.3 955c-6.4 0-12.9-2.5-17.8-7.4-9.8-9.8-9.8-25.7 0-35.6L912.6 73.9c9.8-9.8 25.7-9.8 35.6 0 9.8 9.8 9.8 25.7 0 35.6L110 947.6c-4.9 4.9-11.3 7.4-17.7 7.4z"
-              fill = "#707277"
-            ></path><path
-              d = "M930.4 955c-6.4 0-12.9-2.5-17.8-7.4L74.5 109.5c-9.8-9.8-9.8-25.7 0-35.6 9.8-9.8 25.7-9.8 35.6 0l838.2 838.2c9.8 9.8 9.8 25.7 0 35.6-5 4.8-11.5 7.3-17.9 7.3z"
-              fill = "#707277"
-            ></path></svg>
+    <teleport to = "body">
+      <div class = "des-dialog-overlay" @click.self = "clickOverlay">
+        <div class = "des-dialog-wrapper">
+          <div class = "des-dialog">
+            <div class = "des-dialog-close-icon" @click = "close">
+              <svg height = "16" viewBox = "0 0 1024 1024" width = "16" xmlns = "http://www.w3.org/2000/svg"
+              ><path
+                d = "M92.3 955c-6.4 0-12.9-2.5-17.8-7.4-9.8-9.8-9.8-25.7 0-35.6L912.6 73.9c9.8-9.8 25.7-9.8 35.6 0 9.8 9.8 9.8 25.7 0 35.6L110 947.6c-4.9 4.9-11.3 7.4-17.7 7.4z"
+                fill = "#707277"
+              ></path><path
+                d = "M930.4 955c-6.4 0-12.9-2.5-17.8-7.4L74.5 109.5c-9.8-9.8-9.8-25.7 0-35.6 9.8-9.8 25.7-9.8 35.6 0l838.2 838.2c9.8 9.8 9.8 25.7 0 35.6-5 4.8-11.5 7.3-17.9 7.3z"
+                fill = "#707277"
+              ></path></svg>
+            </div>
+            <header>
+              <slot name = "title">默认标题</slot>
+            </header>
+            <main>
+              <slot name = "content">
+                <p>默认内容1</p>
+                <p>默认内容2</p>
+              </slot>
+            </main>
+            <footer>
+              <Button level = "lesser" theme = "text" @click = "clickCancel">Cancel</Button>
+              <Button @click = "clickOk">OK</Button>
+            </footer>
           </div>
-          <header>
-            <slot name = "title">默认标题</slot>
-          </header>
-          <main>
-            <slot name = "content">
-              <p>默认内容1</p>
-              <p>默认内容2</p>
-            </slot>
-          </main>
-          <footer>
-            <Button level = "lesser" theme = "text" @click = "clickCancel">Cancel</Button>
-            <Button @click = "clickOk">OK</Button>
-          </footer>
         </div>
       </div>
-    </div>
+    </teleport>
   </template>
 </template>
 
