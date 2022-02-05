@@ -41,6 +41,14 @@
       <Button disabled theme = "text">disabled text</Button>
     </div>
   </section>
+  <section>
+    <h1>loading 示例</h1>
+    <div class = "wrapper">
+      <Button :loading = "true">loading button</Button>
+      <Button :loading = "true" theme = "link">loading link</Button>
+      <Button :loading = "true" theme = "text">loading text</Button>
+    </div>
+  </section>
 </template>
 
 <script lang = "ts" setup>
@@ -60,11 +68,8 @@
       margin-bottom: 24px;
 
       > * {
-        margin-right: 48px;
+        margin-right: 16px;
       }
     }
   }
-
-
-
 </style>

@@ -1,6 +1,11 @@
 <template>
   <button :class = "classList" :disabled = "disabled" class = "des-button">
     <span>
+      <span v-if = "loading" class = "des-button-loading">
+        <span class = "loading1"></span>
+        <span class = "loading2"></span>
+        <span class = "loading3"></span>
+      </span>
       <slot />
     </span>
   </button>
@@ -12,12 +17,14 @@
     size: { type: String, default: 'normal' },
     level: { type: String, default: 'primary' },
     disabled: { type: Boolean, default: false },
+    loading: { type: Boolean, default: false },
   });
 
   const classList = [
     `des-button-theme-${ props.theme }`,
     `des-button-size-${ props.size }`,
     `des-button-level-${ props.level }`,
+    { [`des-button-loading`]: props.loading },
   ];
 </script>
 
@@ -30,12 +37,17 @@
     box-sizing: border-box;
     display: inline-flex;
     white-space: nowrap;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     border: 1px solid #DDD;
     color: #404244;
     cursor: pointer;
     background: #FFF;
+
+    > span {
+      display: inline-flex;
+      align-items: center;
+    }
 
     &.des-button-size-small {
       font-size: 12px;
@@ -156,7 +168,7 @@
       border: none;
       background: #C0C4CC;
       cursor: not-allowed;
-      
+
       &:hover {
         background: #C0C4CC;
       }
@@ -178,6 +190,115 @@
       &:hover {
         background: transparent;
       }
+    }
+
+    &.des-button-loading {
+      cursor: not-allowed;
+
+      > span > .des-button-loading {
+        position: relative;
+
+        > span {
+          position: absolute;
+          display: inline-block;
+          top: 0;
+          left: 0;
+          border-radius: 50%;
+          background: inherit;
+          content: "";
+          width: 100%;
+          height: 100%;
+          animation: ball-scale-multiple 2.1s infinite;
+
+          &.loading1 {
+            animation-delay: -.7s;
+          }
+
+          &.loading2 {
+            animation-delay: -1.4s;
+
+          }
+
+          &.loading3 {
+            animation-delay: -2.1s;
+          }
+        }
+      }
+    }
+
+    &.des-button-size-small {
+      > span > .des-button-loading {
+        width: $btn-h-small/2;
+        height: $btn-h-small/2;
+        margin-right: 2px;
+      }
+    }
+
+    &.des-button-size-normal {
+      > span > .des-button-loading {
+        width: $btn-h-normal/2;
+        height: $btn-h-normal/2;
+        margin-right: 3px;
+      }
+    }
+
+    &.des-button-size-large {
+      > span > .des-button-loading {
+        width: $btn-h-large/2;
+        height: $btn-h-large/2;
+        margin-right: 4px;
+      }
+    }
+
+    &.des-button-loading.des-button-theme-button {
+      background: #42B98399;
+      border: none;
+
+      > span > .des-button-loading > span {
+        background: #FFFFFFCC;
+      }
+
+      &:hover {
+        background: #42B98399;
+      }
+    }
+
+    &.des-button-loading.des-button-theme-link {
+      color: #42B98399;
+
+      > span > .des-button-loading > span {
+        background: #42B98399;
+      }
+
+      &:hover > span::after {
+        width: 0;
+      }
+    }
+
+    &.des-button-loading.des-button-theme-text {
+      color: #C0C4CC;
+
+      > span > .des-button-loading > span {
+        background: #C0C4CC;
+      }
+
+      &:hover {
+        background: transparent;
+      }
+    }
+  }
+
+  @keyframes ball-scale-multiple {
+    0% {
+      transform: scale(0.0);
+      opacity: 0;
+    }
+    15% {
+      opacity: .72;
+    }
+    100% {
+      transform: scale(1.0);
+      opacity: 0;
     }
   }
 </style>
