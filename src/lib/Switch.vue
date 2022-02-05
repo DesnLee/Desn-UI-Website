@@ -1,6 +1,6 @@
 <template>
-  <button :class = "[{ checked: value }, `des-${size}-switch`]" :style = "{ background: value ? color : normalColor }"
-          @click = "toggle"
+  <button :class = "[{ 'des-checked': value }, `des-switch-${size}`]"
+          :style = "{ background: value ? color : normalColor }" class = "des-switch" @click = "toggle"
   >
     <span class = "circle"></span>
     <span v-if = "text" class = "text">{{ text[!value + ''] }}</span>
@@ -8,8 +8,6 @@
 </template>
 
 <script lang = "ts" setup>
-import Button from './Button.vue';
-
 const props = defineProps({
   value: { type: Boolean, default: false },
   size: { type: String, default: 'normal' },
@@ -41,10 +39,10 @@ $btn-w-large: 72px;
 $gap-large: 4px;
 $span-wh-large: $btn-h-large - $gap-large * 2;
 
-button {
+.des-switch {
   display: inline-block;
 
-  &.des-small-switch {
+  &.des-switch-small {
     width: $btn-w-small;
     height: $btn-h-small;
     border-radius: $btn-h-small/2;
@@ -64,7 +62,7 @@ button {
       }
     }
 
-    &.checked > .circle {
+    &.des-checked > .circle {
       left: calc(100% - #{$span-wh-small + $gap-small});
     }
 
@@ -74,13 +72,13 @@ button {
       left: calc(100% - #{24px + $gap-small});
     }
 
-    &.checked > .text {
+    &.des-checked > .text {
       left: $gap-small;
       color: #FFF;
     }
   }
 
-  &.des-normal-switch {
+  &.des-switch-normal {
     width: $btn-w-normal;
     height: $btn-h-normal;
     border-radius: $btn-h-normal/2;
@@ -100,7 +98,7 @@ button {
       }
     }
 
-    &.checked > .circle {
+    &.des-checked > .circle {
       left: calc(100% - #{$span-wh-normal + $gap-normal});
     }
 
@@ -110,13 +108,13 @@ button {
       left: calc(100% - #{28px + $gap-normal});
     }
 
-    &.checked > .text {
+    &.des-checked > .text {
       left: $gap-normal;
       color: #FFF;
     }
   }
 
-  &.des-large-switch {
+  &.des-switch-large {
     width: $btn-w-large;
     height: $btn-h-large;
     border-radius: $btn-h-large/2;
@@ -136,7 +134,7 @@ button {
       }
     }
 
-    &.checked > .circle {
+    &.des-checked > .circle {
       left: calc(100% - #{$span-wh-large + $gap-large});
     }
 
@@ -146,7 +144,7 @@ button {
       left: calc(100% - #{30px + $gap-large});
     }
 
-    &.checked > .text {
+    &.des-checked > .text {
       left: $gap-large;
       color: #FFF;
     }
