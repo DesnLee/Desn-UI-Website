@@ -4,22 +4,23 @@
       <div class = "des-dialog-wrapper">
         <div class = "des-dialog">
           <div class = "des-dialog-close-icon" @click = "close">
-            <svg class = "icon" height = "16" p-id = "10885" t = "1644070590318" version = "1.1"
-                 viewBox = "0 0 1024 1024" width = "200" xmlns = "http://www.w3.org/2000/svg"
+            <svg height = "16" viewBox = "0 0 1024 1024" width = "16" xmlns = "http://www.w3.org/2000/svg"
             ><path
               d = "M92.3 955c-6.4 0-12.9-2.5-17.8-7.4-9.8-9.8-9.8-25.7 0-35.6L912.6 73.9c9.8-9.8 25.7-9.8 35.6 0 9.8 9.8 9.8 25.7 0 35.6L110 947.6c-4.9 4.9-11.3 7.4-17.7 7.4z"
-              fill = "#4F4F4F" p-id = "10886"
+              fill = "#707277"
             ></path><path
               d = "M930.4 955c-6.4 0-12.9-2.5-17.8-7.4L74.5 109.5c-9.8-9.8-9.8-25.7 0-35.6 9.8-9.8 25.7-9.8 35.6 0l838.2 838.2c9.8 9.8 9.8 25.7 0 35.6-5 4.8-11.5 7.3-17.9 7.3z"
-              fill = "#4F4F4F" p-id = "10887"
+              fill = "#707277"
             ></path></svg>
           </div>
           <header>
-            我是标题
+            <slot name = "title">默认标题</slot>
           </header>
           <main>
-            <p>我是第一行字</p>
-            <p>我是第二行字</p>
+            <slot name = "content">
+              <p>默认内容1</p>
+              <p>默认内容2</p>
+            </slot>
           </main>
           <footer>
             <Button level = "lesser" theme = "text" @click = "clickCancel">Cancel</Button>
@@ -111,7 +112,6 @@ const clickCancel = () => {
 
         > header {
           font-size: 18px;
-          font-weight: bold;
           line-height: 1.2;
           color: #404244;
           padding-bottom: 8px;
@@ -124,7 +124,8 @@ const clickCancel = () => {
           color: #606266;
           border-bottom: 1px solid #EEE;
 
-          > p {
+          > * {
+            display: block;
             margin-bottom: 12px;
           }
         }

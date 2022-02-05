@@ -1,6 +1,14 @@
 <template>
   <article>
-    <Dialog v-model:visible = "isVisible" :cancel = "functionCancel" :ok = "functionOk" />
+    <Dialog v-model:visible = "isVisible" :cancel = "functionCancel" :ok = "functionOk">
+      <template #title>
+        <strong>自定义标题</strong>
+      </template>
+      <template #content>
+        <strong>自定义内容1</strong>
+        <p>自定义内容2</p>
+      </template>
+    </Dialog>
     <Button theme = "link" @click = "toggle">打开 Dialog</Button>
   </article>
 </template>
@@ -17,6 +25,7 @@
   };
 
   const functionOk = () => {
+
     console.log('ok');
     return true;
   };
