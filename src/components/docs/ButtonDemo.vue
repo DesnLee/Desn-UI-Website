@@ -4,7 +4,7 @@
     <Button size = "small">小型按钮</Button>
     <Button>默认按钮</Button>
     <Button size = "large">大型按钮</Button>
-    <Button theme = "button">button</Button>
+    <Button theme = "button">normal button</Button>
     <Button theme = "link">link button</Button>
     <Button theme = "text">text button</Button>
   </div>

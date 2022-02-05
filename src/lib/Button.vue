@@ -1,6 +1,8 @@
 <template>
   <button :class = "classList" class = "des-button">
-    <slot />
+    <span>
+      <slot />
+    </span>
   </button>
 </template>
 
@@ -19,9 +21,7 @@
 
 <style lang = "scss">
   $btn-h-normal: 32px;
-
   $btn-h-small: 24px;
-
   $btn-h-large: 40px;
 
   .des-button {
@@ -64,11 +64,47 @@
       }
     }
 
-    &:hover {
+    &.des-button-link {
+      background: transparent;
+      border: 1px solid transparent;
+      color: #42B983;
+      font-weight: bold;
+
+      > span {
+        position: relative;
+
+        &::after {
+          position: absolute;
+          left: 0;
+          bottom: -2px;
+          content: "";
+          width: 0;
+          height: 2px;
+          background: #42B983;
+          transition: all .3s ease-in-out;
+        }
+      }
+    }
+
+    &.des-button-text {
+      background: transparent;
+      border: 1px solid transparent;
+    }
+
+    &.des-button-button:hover {
       color: #42B983;
       border: 1px solid #42B983;
     }
 
+    &.des-button-link:hover {
+      > span::after {
+        width: 100%;
+      }
+    }
 
+    &.des-button-text:hover {
+      background: #00000008;
+      color: #42B983;
+    }
   }
 </style>
