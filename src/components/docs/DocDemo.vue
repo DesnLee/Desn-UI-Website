@@ -1,5 +1,7 @@
 <template>
-  <Doc />
+  <article>
+    <Doc />
+  </article>
 </template>
 
 <script lang = "ts" setup>

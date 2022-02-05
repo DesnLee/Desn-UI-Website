@@ -1,16 +1,18 @@
 <template>
-  <div class = "switch-wrapper">
-    <Switch v-model:value = "largeValue" :text = "cnText" size = "large" />
-    <span>大按钮（加文字）</span>
-  </div>
-  <div class = "switch-wrapper">
-    <Switch v-model:value = "normalValue" size = "normal" />
-    <span>中按钮</span>
-  </div>
-  <div class = "switch-wrapper">
-    <Switch v-model:value = "smallValue" color = "#ff0000" size = "small" />
-    <span>小按钮（改颜色）</span>
-  </div>
+  <article>
+    <div class = "switch-wrapper">
+      <Switch v-model:value = "largeValue" :text = "cnText" size = "large" />
+      <span>大按钮（加文字）</span>
+    </div>
+    <div class = "switch-wrapper">
+      <Switch v-model:value = "normalValue" size = "normal" />
+      <span>中按钮</span>
+    </div>
+    <div class = "switch-wrapper">
+      <Switch v-model:value = "smallValue" color = "#ff0000" size = "small" />
+      <span>小按钮（改颜色）</span>
+    </div>
+  </article>
 </template>
 
 <script lang = "ts" setup>

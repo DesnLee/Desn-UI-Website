@@ -2,7 +2,9 @@
     <NavBar />
     <AsideBar />
     <main class = "content">
-      <router-view />
+      <transition mode = "out-in" name = "content">
+        <router-view />
+      </transition>
     </main>
 </template>
 
@@ -25,5 +27,13 @@
       top: 36px;
       bottom: 36px;
     }
+  }
+
+  .content-enter-active, .content-leave-active {
+    transition: opacity .4s ease;
+  }
+
+  .content-enter-from, .content-leave-to {
+    opacity: 0;
   }
 </style>

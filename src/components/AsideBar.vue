@@ -1,4 +1,5 @@
 <template>
+  <transition name = "aside">
   <aside v-if = "isPC || asideVisible">
     <div class = "linkGroup">
       <h1>起步</h1>
@@ -11,6 +12,7 @@
       >{{ component.name }}</router-link>
     </div>
   </aside>
+  </transition>
 </template>
 <script lang = "ts" setup>
  import { inject, Ref } from 'vue';
@@ -63,5 +65,13 @@
         }
       }
     }
+  }
+
+  .aside-enter-active, .aside-leave-active {
+    transition: transform .3s ease;
+  }
+
+  .aside-enter-from, .aside-leave-to {
+    transform: translateX(-100%);
   }
 </style>

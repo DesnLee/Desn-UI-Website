@@ -1,10 +1,11 @@
 <template>
-  <Dialog />
+  <article>
+    <Dialog />
+  </article>
 </template>
 
 <script lang = "ts" setup>
-import Dialog from '../../lib/Dialog.vue';
-</script>
+import Dialog from '../../lib/Dialog.vue';</script>
 
 <style lang = "scss" scoped>
 </style>
