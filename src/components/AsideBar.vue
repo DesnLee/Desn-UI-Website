@@ -57,6 +57,10 @@
         line-height: 1;
         margin-top: 12px;
 
+        &:hover {
+          color: #42B983;
+        }
+
         &.selected {
           color: $color-highlight;
           font-weight: bold;

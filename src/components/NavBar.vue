@@ -1,17 +1,15 @@
 <template>
   <nav>
-    <Icon
-      v-if="!isPC && currentRoute.indexOf('/doc') === 0"
-      class="menu"
-      name="menu"
-      @click="toggle"
+    <Icon v-if = "!isPC && currentRoute.indexOf('/doc') === 0" class = "menu" name = "menu" @click = "toggle"
     />
-    <router-link class="logo-wrapper" to="/">
-      <img alt="logo" src="../assets/logo.png" />
+    <router-link class = "logo-wrapper" to = "/">
+      <img alt = "logo" src = "../assets/logo.png" />
     </router-link>
-    <div class="link-wrapper">
-      <router-link to="/">首页</router-link>
-      <router-link to="/doc/start">文档</router-link>
+    <div class = "link-wrapper">
+      <router-link to = "/">首页</router-link>
+      <router-link to = "/doc/start">文档</router-link>
+      <a href = "https://github.com" target = "_blank">Github</a>
+      <a href = "https://t.me/DesnLeeBot" target = "_blank">Telegram</a>
     </div>
   </nav>
 </template>
@@ -55,10 +53,33 @@ nav {
 
   > .link-wrapper {
     font-weight: bold;
+    color: #606266;
     padding-right: 24px;
 
     > * {
+      position: relative;
       margin-left: 36px;
+      transition: color .3s;
+
+      &::after {
+        display: block;
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        content: '';
+        height: 2px;
+        width: 0;
+        background: #42B983;
+        transition: width .6s;
+      }
+
+      &:hover {
+        color: #42B983;
+
+        &::after {
+          width: 100%;
+        }
+      }
     }
   }
 
