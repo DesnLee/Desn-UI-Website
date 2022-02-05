@@ -38,14 +38,15 @@ nav {
   top: 0;
   width: 100%;
   height: $height-navbar;
-  background: $color-highlight;
+  background: #FFFFFF;
+  //border-bottom: 1px solid #DDD;
   display: flex;
   align-items: center;
 
   > .logo-wrapper {
     margin-left: 24px;
     margin-right: auto;
-    height: $height-navbar;
+    height: 40px;
 
     img {
       height: 100%;
@@ -64,11 +65,11 @@ nav {
   .menu {
     position: absolute;
     left: 24px;
-    top: 24px;
+    top: ($height-navbar - 32px )/2;
     display: none;
-    width: 48px;
-    height: 48px;
-    background: white;
+    width: 32px;
+    height: 32px;
+    color: #303133;
   }
 
   @media (max-width: $move-device-width) {

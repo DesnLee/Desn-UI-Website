@@ -35,7 +35,7 @@
     z-index: 10;
     position: fixed;
     box-shadow: 0 0 16px #00000011;
-    background: #FFF;
+    background: #F8F8F8;
     padding: 0 16px;
     height: 100%;
     width: $width-aside-bar;
