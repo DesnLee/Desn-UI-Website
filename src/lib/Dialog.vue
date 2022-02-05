@@ -56,17 +56,14 @@ const clickOverlay = () => {
 };
 
 const clickOk = () => {
-  if (props.ok) {
-    if (props.ok()) close();
-  } else {
+  if (!props.ok) close();
+  if (props.ok!() !== false) {
     close();
   }
 };
 
 const clickCancel = () => {
-  if (props.cancel) {
-    props.cancel();
-  }
+  props.cancel?.();
   close();
 };
 </script>
