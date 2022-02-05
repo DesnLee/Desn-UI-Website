@@ -64,10 +64,12 @@
 
     .wrapper {
       display: flex;
+      flex-wrap: wrap;
       align-items: flex-end;
       margin-bottom: 24px;
 
       > * {
+        margin-bottom: 16px;
         margin-right: 16px;
       }
     }

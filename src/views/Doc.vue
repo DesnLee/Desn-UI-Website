@@ -14,7 +14,8 @@
   @import "../assets/style/helper";
 
   .content {
-
+    max-width: 100vw;
+    overflow: hidden;
     @media (max-width: $move-device-width) {
       padding-left: 24px;
     }
