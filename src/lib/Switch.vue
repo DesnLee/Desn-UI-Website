@@ -25,7 +25,7 @@ const toggle = () => {
 };
 </script>
 
-<style lang = "scss" scoped>
+<style lang = "scss">
 $btn-h-small: 24px;
 $btn-w-small: 40px;
 $gap-small: 2px;
