@@ -9,13 +9,14 @@
 <script lang = "ts" setup>
   const props = defineProps({
     theme: { type: String, default: 'button' },
-    size: { type: String, default: 'normal' }
-
+    size: { type: String, default: 'normal' },
+    level: { type: String, default: 'primary' },
   });
 
   const classList = [
-    `des-button-${ props.theme }`,
-    `des-button-${ props.size }`,
+    `des-button-theme-${ props.theme }`,
+    `des-button-size-${ props.size }`,
+    `des-button-level-${ props.level }`,
   ];
 </script>
 
@@ -34,7 +35,7 @@
     cursor: pointer;
     background: #FFF;
 
-    &.des-button-small {
+    &.des-button-size-small {
       font-size: 12px;
       height: $btn-h-small;
       border-radius: 3px;
@@ -44,7 +45,7 @@
       }
     }
 
-    &.des-button-normal {
+    &.des-button-size-normal {
       font-size: 14px;
       height: $btn-h-normal;
       border-radius: 4px;
@@ -54,7 +55,7 @@
       }
     }
 
-    &.des-button-large {
+    &.des-button-size-large {
       font-size: 16px;
       height: $btn-h-large;
       border-radius: 5px;
@@ -64,7 +65,7 @@
       }
     }
 
-    &.des-button-link {
+    &.des-button-theme-link {
       background: transparent;
       border: 1px solid transparent;
       color: #42B983;
@@ -86,25 +87,67 @@
       }
     }
 
-    &.des-button-text {
+    &.des-button-theme-text {
       background: transparent;
       border: 1px solid transparent;
     }
 
-    &.des-button-button:hover {
+    &.des-button-theme-button:hover {
       color: #42B983;
       border: 1px solid #42B983;
     }
 
-    &.des-button-link:hover {
+    &.des-button-theme-link:hover {
       > span::after {
         width: 100%;
       }
     }
 
-    &.des-button-text:hover {
+    &.des-button-theme-text:hover {
       background: #00000008;
       color: #42B983;
+    }
+
+    &.des-button-theme-button.des-button-level-primary {
+      border: 1px solid #42B983;
+      background: #42B983;
+      color: #FFFFFFEE;
+      transition: all .3s ease-in-out;
+
+      &:hover {
+        background: #42B983CC;
+      }
+    }
+
+    &.des-button-theme-button.des-button-level-dangerous {
+      border: 1px solid #E25;
+      background: #E25;
+      color: #FFFFFFEE;
+      transition: all .3s ease-in-out;
+
+      &:hover {
+        background: #EE2255AA;
+      }
+    }
+
+    &.des-button-theme-link.des-button-level-dangerous {
+      color: #E25;
+
+      & > span::after {
+        background: #E25;
+      }
+    }
+
+    &.des-button-theme-text.des-button-level-primary {
+      color: #42B983;
+    }
+
+    &.des-button-theme-text.des-button-level-lesser {
+      color: #606266;
+    }
+
+    &.des-button-theme-text.des-button-level-dangerous {
+      color: #E25;
     }
   }
 </style>
