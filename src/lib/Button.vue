@@ -1,5 +1,5 @@
 <template>
-  <button :class = "classList" class = "des-button">
+  <button :class = "classList" :disabled = "disabled" class = "des-button">
     <span>
       <slot />
     </span>
@@ -11,6 +11,7 @@
     theme: { type: String, default: 'button' },
     size: { type: String, default: 'normal' },
     level: { type: String, default: 'primary' },
+    disabled: { type: Boolean, default: false },
   });
 
   const classList = [
@@ -26,6 +27,7 @@
   $btn-h-large: 40px;
 
   .des-button {
+    box-sizing: border-box;
     display: inline-flex;
     white-space: nowrap;
     justify-content: center;
@@ -82,7 +84,7 @@
           width: 0;
           height: 2px;
           background: #42B983;
-          transition: all .3s ease-in-out;
+          transition: width .3s ease-in-out;
         }
       }
     }
@@ -148,6 +150,34 @@
 
     &.des-button-theme-text.des-button-level-dangerous {
       color: #E25;
+    }
+
+    &.des-button-theme-button[disabled] {
+      border: none;
+      background: #C0C4CC;
+      cursor: not-allowed;
+      
+      &:hover {
+        background: #C0C4CC;
+      }
+    }
+
+    &.des-button-theme-link[disabled] {
+      color: #909399;
+      cursor: not-allowed;
+
+      > span::after {
+        background: #C0C4CC;
+      }
+    }
+
+    &.des-button-theme-text[disabled] {
+      color: #909399;
+      cursor: not-allowed;
+
+      &:hover {
+        background: transparent;
+      }
     }
   }
 </style>

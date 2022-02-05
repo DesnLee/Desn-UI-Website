@@ -33,6 +33,14 @@
       <Button level = "dangerous" theme = "text">危险 text</Button>
     </div>
   </section>
+  <section>
+    <h1>disabled 示例</h1>
+    <div class = "wrapper">
+      <Button disabled>disabled button</Button>
+      <Button disabled theme = "link">disabled link</Button>
+      <Button disabled theme = "text">disabled text</Button>
+    </div>
+  </section>
 </template>
 
 <script lang = "ts" setup>
