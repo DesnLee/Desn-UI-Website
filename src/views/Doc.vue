@@ -2,9 +2,11 @@
     <NavBar />
     <AsideBar />
     <main class = "content">
-      <transition mode = "out-in" name = "content">
-        <router-view />
-      </transition>
+        <router-view v-slot = "{Component}">
+          <transition mode = "out-in" name = "content">
+            <component :is = "Component" />
+          </transition>
+      </router-view>
     </main>
 </template>
 
@@ -30,7 +32,7 @@
   }
 
   .content-enter-active, .content-leave-active {
-    transition: opacity .4s ease;
+    transition: opacity .2s ease;
   }
 
   .content-enter-from, .content-leave-to {
