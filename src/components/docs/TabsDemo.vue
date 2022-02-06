@@ -2,8 +2,9 @@
   <article>
     <h1>示例1</h1>
     <Tabs v-model:selected = "currentTitle">
-      <Tab title = "tab11">内容1</Tab>
-      <Tab title = "tab22222">内容2</Tab>
+      <Tab title = "tab1111">内容1</Tab>
+      <Tab title = "tab2222222">内容2</Tab>
+      <Tab title = "tab33">内容3</Tab>
     </Tabs>
   </article>
 </template>
@@ -13,7 +14,7 @@ import { ref } from 'vue';
 import Tab from '../../lib/Tab.vue';
 import Tabs from '../../lib/Tabs.vue';
 
-const currentTitle = ref('tab11');
+const currentTitle = ref('tab33');
 
 </script>
 

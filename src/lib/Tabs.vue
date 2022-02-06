@@ -1,24 +1,25 @@
 <template>
   <div class = "des-tabs">
-    <div class = "des-tabs-nav">
+    <div ref = "container" class = "des-tabs-nav">
       <div v-for = "(title, index) in titles" :key = "index" :ref = "getItems" :class = "{selected: selected === title}"
            class = "des-tabs-nav-item" @click = "switchTab(title)"
-      >{{
-          title
-        }}</div>
+      >{{ title }}</div>
       <div ref = "line" class = "des-tabs-nav-line"></div>
     </div>
     <div class = "des-tabs-content">
-      <component :is = "currentComponent" :key = "selected" />
+      <transition mode = "out-in" name = "content">
+        <component :is = "currentComponent" :key = "selected" />
+      </transition>
     </div>
   </div>
 </template>
 
 <script lang = "ts" setup>
-  import { computed, onMounted, ref, useSlots } from 'vue';
+  import { computed, onMounted, onUpdated, ref, useSlots } from 'vue';
   import Tab from './Tab.vue';
 
   const items = ref<HTMLDivElement[]>([]);
+  const container = ref<HTMLDivElement>(null);
   const line = ref<HTMLDivElement>(null);
   const getItems = el => {
     if (el) {
@@ -26,12 +27,20 @@
     }
   };
 
-  onMounted(() => {
+  const setLineStyle = () => {
     const result = items.value.filter(item => {
       return item.classList.contains('selected');
     })[0];
-    const { width } = result.getBoundingClientRect();
+    const { width, left: elLeft } = result.getBoundingClientRect();
+    const { left: containerLeft } = container.value.getBoundingClientRect();
     line.value.style.width = width + 'px';
+    line.value.style.left = (elLeft - containerLeft) + 'px';
+  };
+  onMounted(() => {
+    setLineStyle();
+  });
+  onUpdated(() => {
+    setLineStyle();
   });
 
   const props = defineProps({
@@ -88,6 +97,7 @@
         position: absolute;
         background: #42B983;
         bottom: -1px;
+        transition: all .3s ease-in-out;
       }
     }
 
@@ -96,5 +106,17 @@
     }
   }
 
+  .content-enter-active, .content-leave-active {
+    transition: all .2s ease;
+  }
 
+  .content-enter-from {
+    transform: translateY(5px);
+    opacity: 0;
+  }
+
+  .content-leave-to {
+    transform: translateY(-5px);
+    opacity: 0;
+  }
 </style>
