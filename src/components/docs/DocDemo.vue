@@ -6,7 +6,7 @@
 
 <script lang = "ts" setup>
 
-import Doc from '../../lib/Doc.vue';</script>
+import Doc from '../../lib/Start.vue';</script>
 
 <style lang = "scss" scoped>
 
