@@ -132,15 +132,26 @@ import NavBar from '../components/NavBar.vue';</script>
     margin-right: auto;
     display: flex;
     padding: 48px 0;
+    flex-direction: column;
+
+    @media (min-width: 700px) {
+      flex-direction: row;
+
+      > div {
+        width: 33.333%;
+      }
+    }
 
     > div {
-      width: 33.333%;
       padding-left: 5%;
       padding-right: 5%;
+      padding-bottom: 64px;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
+      text-align: center;
+      line-height: 1.6;
 
       > svg {
         margin-bottom: 24px;
@@ -154,10 +165,10 @@ import NavBar from '../components/NavBar.vue';</script>
       }
 
       > p {
+        margin-top: 8px;
         color: #404244;
         font-weight: 300;
         font-size: 14px;
-
       }
     }
   }
