@@ -14,7 +14,7 @@ import { ref } from 'vue';
 import Tab from '../../lib/Tab.vue';
 import Tabs from '../../lib/Tabs.vue';
 
-const currentTitle = ref('tab33');
+const currentTitle = ref('tab1111');
 
 </script>
 

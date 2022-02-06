@@ -1,7 +1,8 @@
 <template>
   <div class = "des-tabs">
     <div ref = "container" class = "des-tabs-nav">
-      <div v-for = "(title, index) in titles" :key = "index" :ref = "getItems" :class = "{selected: selected === title}"
+      <div v-for = "(title, index) in titles" :key = "index"
+           :ref = "(el) => {if (title === selected) {selectedTab = el;}}" :class = "{selected: selected === title}"
            class = "des-tabs-nav-item" @click = "switchTab(title)"
       >{{ title }}</div>
       <div ref = "line" class = "des-tabs-nav-line"></div>
@@ -15,38 +16,14 @@
 </template>
 
 <script lang = "ts" setup>
-  import { computed, onMounted, onUpdated, ref, useSlots } from 'vue';
+  import { computed, onMounted, ref, useSlots, watchEffect } from 'vue';
   import Tab from './Tab.vue';
-
-  const items = ref<HTMLDivElement[]>([]);
-  const container = ref<HTMLDivElement>(null);
-  const line = ref<HTMLDivElement>(null);
-  const getItems = el => {
-    if (el) {
-      items.value.push(el);
-    }
-  };
-
-  const setLineStyle = () => {
-    const result = items.value.filter(item => {
-      return item.classList.contains('selected');
-    })[0];
-    const { width, left: elLeft } = result.getBoundingClientRect();
-    const { left: containerLeft } = container.value.getBoundingClientRect();
-    line.value.style.width = width + 'px';
-    line.value.style.left = (elLeft - containerLeft) + 'px';
-  };
-  onMounted(() => {
-    setLineStyle();
-  });
-  onUpdated(() => {
-    setLineStyle();
-  });
 
   const props = defineProps({
     selected: { type: String, required: true }
   });
   const emit = defineEmits([ 'update:selected' ]);
+
   const children = useSlots().default();
   children.forEach(child => {
     if (child.type !== Tab) {
@@ -67,6 +44,19 @@
   const switchTab = (title) => {
     emit('update:selected', title);
   };
+
+  const selectedTab = ref<HTMLDivElement>(null);
+  const container = ref<HTMLDivElement>(null);
+  const line = ref<HTMLDivElement>(null);
+
+  onMounted(() => {
+    watchEffect(() => {
+      const { width, left: elLeft } = selectedTab.value.getBoundingClientRect();
+      const { left: containerLeft } = container.value.getBoundingClientRect();
+      line.value.style.width = width + 'px';
+      line.value.style.left = (elLeft - containerLeft) + 'px';
+    });
+  });
 </script>
 
 <style lang = "scss">
