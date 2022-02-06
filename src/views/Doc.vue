@@ -3,7 +3,7 @@
     <AsideBar />
     <main class = "content">
         <router-view v-slot = "{Component}">
-          <transition mode = "out-in" name = "content">
+          <transition mode = "out-in" name = "doc-content">
             <component :is = "Component" />
           </transition>
       </router-view>
@@ -31,11 +31,11 @@
     }
   }
 
-  .content-enter-active, .content-leave-active {
+  .docs-content-enter-active, .doc-content-leave-active {
     transition: opacity .2s ease;
   }
 
-  .content-enter-from, .content-leave-to {
+  .doc-content-enter-from, .doc-content-leave-to {
     opacity: 0;
   }
 </style>

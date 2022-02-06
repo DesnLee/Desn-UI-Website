@@ -8,7 +8,7 @@
       <div ref = "line" class = "des-tabs-nav-line"></div>
     </div>
     <div class = "des-tabs-content">
-      <transition mode = "out-in" name = "content">
+      <transition mode = "out-in" name = "tabs-content">
         <component :is = "currentComponent" :key = "selected" />
       </transition>
     </div>
@@ -96,16 +96,16 @@
     }
   }
 
-  .content-enter-active, .content-leave-active {
+  .tabs-content-enter-active, .tabs-content-leave-active {
     transition: all .2s ease;
   }
 
-  .content-enter-from {
+  .tabs-content-enter-from {
     transform: translateY(5px);
     opacity: 0;
   }
 
-  .content-leave-to {
+  .tabs-content-leave-to {
     transform: translateY(-5px);
     opacity: 0;
   }
