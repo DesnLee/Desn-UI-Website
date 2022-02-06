@@ -1,13 +1,15 @@
 <template>
-    <NavBar />
-    <AsideBar />
-    <main class = "content">
-        <router-view v-slot = "{Component}">
-          <transition mode = "out-in" name = "doc-content">
-            <component :is = "Component" />
-          </transition>
-      </router-view>
-    </main>
+  <div class = "nav-wrapper">
+    <NavBar color = "#606266" />
+  </div>
+  <AsideBar />
+  <main class = "content">
+      <router-view v-slot = "{Component}">
+        <transition mode = "out-in" name = "doc-content">
+          <component :is = "Component" />
+        </transition>
+    </router-view>
+  </main>
 </template>
 
 <script lang = "ts" setup>
@@ -16,6 +18,13 @@
 
 <style lang = "scss" scoped>
   @import "../assets/style/helper";
+
+  .nav-wrapper {
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 15;
+  }
 
   .content {
     max-width: 100vw;

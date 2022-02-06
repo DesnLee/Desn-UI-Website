@@ -1,11 +1,11 @@
 <template>
-  <nav>
+  <nav ref = "navBar">
     <Icon v-if = "!isPC && currentRoute.indexOf('/doc') === 0" class = "menu" name = "menu" @click = "toggle"
     />
     <router-link class = "logo-wrapper" to = "/">
       <img alt = "logo" src = "../assets/logo.png" />
     </router-link>
-    <div class = "link-wrapper">
+    <div :style = "`color:${color}`" class = "link-wrapper">
       <router-link to = "/">首页</router-link>
       <router-link to = "/doc/start">文档</router-link>
       <a href = "https://github.com" target = "_blank">Github</a>
@@ -15,8 +15,13 @@
 </template>
 
 <script lang = "ts" setup>
-import { inject, Ref } from 'vue';
+import { inject, onMounted, Ref, ref } from 'vue';
 import Icon from './Icon.vue';
+
+const props = defineProps({
+  color: { type: String, required: true },
+  ref: HTMLDivElement
+});
 
 const currentRoute = inject<Ref<string>>('currentRoute')!;
 const isPC = inject<Ref<boolean>>('isPC');
@@ -25,26 +30,33 @@ let asideVisible = inject<Ref<boolean>>('asideVisible')!;
 const toggle = () => {
   asideVisible.value = !asideVisible?.value;
 };
+
+const navBar = ref<HTMLDivElement>(null);
+onMounted(() => {
+  if (currentRoute.value.startsWith('/doc')) {
+    navBar.value.style.maxWidth = '100vw';
+  } else {
+    navBar.value.style.maxWidth = 1000 + 'px';
+  }
+});
 </script>
+
 
 <style lang = "scss" scoped>
 @import "../assets/style/helper";
 
 nav {
-  z-index: 11;
-  position: sticky;
-  top: 0;
-  width: 100%;
   height: $height-navbar;
-  background: #FFFFFF;
-  //border-bottom: 1px solid #DDD;
   display: flex;
   align-items: center;
+  margin-left: auto;
+  margin-right: auto;
 
   > .logo-wrapper {
     margin-left: 24px;
     margin-right: auto;
     height: 40px;
+    filter: drop-shadow(0 0 12px #42B98396);
 
     img {
       height: 100%;
@@ -53,7 +65,6 @@ nav {
 
   > .link-wrapper {
     font-weight: bold;
-    color: #606266;
     padding-right: 24px;
 
     > * {
