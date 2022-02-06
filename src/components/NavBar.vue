@@ -3,13 +3,19 @@
     <Icon v-if = "!isPC && currentRoute.indexOf('/doc') === 0" class = "menu" name = "menu" @click = "toggle"
     />
     <router-link class = "logo-wrapper" to = "/">
-      <img alt = "logo" src = "../assets/logo.png" />
+      <Icon name = "logo" />
     </router-link>
     <div :style = "`color:${color}`" class = "link-wrapper">
       <router-link to = "/">首页</router-link>
       <router-link to = "/doc/start">文档</router-link>
-      <a href = "https://github.com" target = "_blank">Github</a>
-      <a href = "https://t.me/DesnLeeBot" target = "_blank">Telegram</a>
+      <a href = "https://github.com" target = "_blank">
+        <Icon name = "github" />
+        <span>Github</span>
+      </a>
+      <a href = "https://t.me/DesnLeeBot" target = "_blank">
+        <Icon name = "telegram" />
+        <span>Telegram</span>
+      </a>
     </div>
   </nav>
 </template>
@@ -53,24 +59,40 @@ nav {
   margin-right: auto;
 
   > .logo-wrapper {
-    margin-left: 24px;
     margin-right: auto;
-    height: 40px;
-    filter: drop-shadow(0 0 12px #42B98396);
+    cursor: pointer;
 
-    img {
-      height: 100%;
+    svg {
+      width: 40px;
+      height: 40px;
+      filter: drop-shadow(0 0 12px #42B98396);
+    }
+
+    @media(min-width: 700px) {
+      margin-left: 24px;
     }
   }
 
   > .link-wrapper {
     font-weight: bold;
     padding-right: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    > * {
+    > a {
       position: relative;
       margin-left: 36px;
       transition: color .3s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      > svg {
+        width: 20px;
+        height: 20px;
+        margin-right: 4px;
+      }
 
       &::after {
         display: block;
@@ -102,6 +124,7 @@ nav {
     width: 32px;
     height: 32px;
     color: #303133;
+    cursor: pointer;
   }
 
   @media (max-width: $move-device-width) {
