@@ -1,12 +1,12 @@
 <template>
   <article>
-    <Doc />
+    介绍
   </article>
 </template>
 
 <script lang = "ts" setup>
 
-import Doc from '../../lib/Start.vue';</script>
+</script>
 
 <style lang = "scss" scoped>
 

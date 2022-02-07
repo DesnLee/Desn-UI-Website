@@ -10,7 +10,7 @@
             <Icon name = "github" />
             <span>Github</span>
           </a>
-          <router-link class = "link-primary" to = "/doc/start">
+          <router-link class = "link-primary" to = "/doc/install">
             <span>起步</span>
             <Icon name = "start" />
           </router-link>

@@ -1,5 +1,5 @@
 <template>
-    <NavBar bg-color = "#FFF" />
+  <NavBar bg-color = "#FFF" />
   <AsideBar />
   <main class = "content">
       <router-view v-slot = "{Component}">

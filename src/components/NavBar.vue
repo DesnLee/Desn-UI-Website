@@ -8,7 +8,7 @@
       </router-link>
       <div class = "link-wrapper">
         <router-link to = "/">首页</router-link>
-        <router-link to = "/doc/start">文档</router-link>
+        <router-link to = "/doc/introduction">文档</router-link>
         <a href = "https://github.com/desnlee" target = "_blank">
           <Icon name = "github" />
           <span>Github</span>
