@@ -3,6 +3,7 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import './assets/style/reset.scss';
 import './lib/index.scss';
+import 'github-markdown-css';
 import router from './router';
 
 const app = createApp(App);
