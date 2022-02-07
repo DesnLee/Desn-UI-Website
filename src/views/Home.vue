@@ -1,6 +1,6 @@
 <template>
   <div class = "nav-banner-wrapper">
-    <NavBar max-width = "1000px" />
+    <NavBar max-width = "1000px" position = "relative" />
     <div class = "banner">
       <div class = "banner-content">
         <h1>Des UI</h1>

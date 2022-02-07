@@ -29,6 +29,7 @@ import Icon from './Icon.vue';
 const props = defineProps({
   color: { type: String, default: '#606266' },
   bgColor: { type: String, default: 'transparent' },
+  position: { type: String, default: 'sticky' },
   maxWidth: { type: String, default: '' },
   ref: HTMLDivElement
 });
@@ -48,7 +49,7 @@ const toggle = () => {
 
 .nav-wrapper {
   z-index: 15;
-  position: sticky;
+  position: v-bind(position);
   top: 0;
   background: v-bind(bgColor);
 
