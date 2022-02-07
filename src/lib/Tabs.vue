@@ -1,9 +1,8 @@
 <template>
   <div class = "des-tabs">
     <div ref = "container" class = "des-tabs-nav">
-      <div v-for = "(title, index) in titles" :key = "index"
-           :ref = "(el) => {if (title === selected) {selectedTab = el;}}" :class = "{selected: selected === title}"
-           class = "des-tabs-nav-item" @click = "switchTab(title)"
+      <div v-for = "(title, index) in titles" :key = "index" :ref = "setSelectedTab"
+           :class = "{selected: selected === title}" class = "des-tabs-nav-item" @click = "switchTab(title)"
       >{{ title }}</div>
       <div ref = "line" class = "des-tabs-nav-line"></div>
     </div>
@@ -48,6 +47,12 @@
   const selectedTab = ref<HTMLDivElement>(null);
   const container = ref<HTMLDivElement>(null);
   const line = ref<HTMLDivElement>(null);
+
+  const setSelectedTab = el => {
+    if (el?.classList.contains('selected')) {
+      selectedTab.value = el;
+    }
+  };
 
   onMounted(() => {
     watchEffect(() => {
