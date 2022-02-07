@@ -1,5 +1,5 @@
 <template>
-  <NavBar />
+  <NavBar bg-color = "#FFF" max-width = "1000px" />
   <div>
     <div class = "pic-wrapper">
       <Icon name = "notfound" />

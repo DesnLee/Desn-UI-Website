@@ -1,7 +1,5 @@
 <template>
-  <div class = "nav-wrapper">
-    <NavBar color = "#606266" />
-  </div>
+    <NavBar bg-color = "#FFF" />
   <AsideBar />
   <main class = "content">
       <router-view v-slot = "{Component}">
@@ -18,13 +16,6 @@
 
 <style lang = "scss" scoped>
   @import "../assets/style/helper";
-
-  .nav-wrapper {
-    background: white;
-    position: sticky;
-    top: 0;
-    z-index: 15;
-  }
 
   .content {
     max-width: 100vw;

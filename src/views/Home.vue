@@ -1,6 +1,6 @@
 <template>
   <div class = "nav-banner-wrapper">
-    <NavBar color = "#606266" />
+    <NavBar max-width = "1000px" />
     <div class = "banner">
       <div class = "banner-content">
         <h1>Des UI</h1>
