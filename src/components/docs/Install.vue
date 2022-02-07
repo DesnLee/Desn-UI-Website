@@ -1,11 +1,10 @@
 <template>
-  <article>
-    安装
+  <article class = "markdown-body" v-html = "html">
   </article>
 </template>
 
 <script lang = "ts" setup>
-</script>
+  import { html } from '../../markdown/install.md';</script>
 
 <style lang = "scss" scoped>
 
