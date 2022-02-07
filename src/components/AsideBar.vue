@@ -2,14 +2,29 @@
   <transition name = "aside">
   <aside v-if = "isPC || asideVisible">
     <div class = "linkGroup">
-      <h1>起步</h1>
-      <router-link active-class = "selected" class = "link" to = "/doc/start">项目介绍</router-link>
+      <h1 class = "group-title">文档</h1>
+      <ol class = "link-list">
+        <li>
+          <router-link class = "link" to = "/doc/introduction">介绍</router-link>
+        </li>
+        <li>
+          <router-link class = "link" to = "/doc/install">安装</router-link>
+        </li>
+        <li>
+          <router-link class = "link" to = "/doc/start">开始使用</router-link>
+        </li>
+      </ol>
     </div>
     <div class = "linkGroup">
-      <h1>组件列表</h1>
-      <router-link v-for = "(component, index) in componentList" :key = "index"
-                   :to = "'/doc/' + component.name.toLowerCase()" active-class = "selected" class = "link"
-      >{{ component.name }}</router-link>
+      <h1 class = "group-title">组件列表</h1>
+      <ol class = "link-list">
+        <li v-for = "(component, index) in componentList" :key = " index "
+        >
+        <router-link :to = " '/doc/' + component.name.toLowerCase() " class = "link">{{
+            component.name
+          }}</router-link>
+      </li>
+      </ol>
     </div>
   </aside>
   </transition>
@@ -36,36 +51,52 @@
     position: fixed;
     box-shadow: 0 0 16px #00000011;
     background: #F8F8F8;
-    padding: 0 16px;
     height: 100%;
     width: $width-aside-bar;
     overflow: scroll;
 
     > .linkGroup {
       color: #404244;
-      margin-top: 24px;
+      margin-top: 36px;
 
-      > h1 {
+      > .group-title {
         font-size: 20px;
         line-height: 2;
+        padding: 0 16px;
       }
 
-      > .link {
-        display: block;
-        padding: 8px 12px;
-        font-size: 16px;
-        line-height: 1;
-        margin-top: 12px;
+      > .link-list {
+        margin-top: 8px;
 
-        &:hover {
-          color: #42B983;
-        }
+        > li {
+          > .link {
+            display: block;
+            position: relative;
+            padding: 16px 24px;
+            font-size: 16px;
+            line-height: 1;
 
-        &.selected {
-          color: $color-highlight;
-          font-weight: bold;
-          border-left: 3px solid $color-highlight;
-          padding-left: 9px;
+            &:hover {
+              color: #42B983;
+            }
+
+            &.router-link-active {
+              color: $color-highlight;
+              font-weight: bold;
+              background: #42B98324;
+
+              &::before {
+                content: '';
+                position: absolute;
+                background: $color-highlight;
+                display: block;
+                top: 0;
+                left: 0;
+                width: 4px;
+                height: 100%;
+              }
+            }
+          }
         }
       }
     }
