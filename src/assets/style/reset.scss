@@ -34,6 +34,10 @@ button {
 
 .markdown-body, .component-article-container {
   padding: 45px;
+
+  ul, ol {
+    list-style: disc;
+  }
 }
 
 @media (max-width: 767px) {
