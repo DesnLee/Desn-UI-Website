@@ -1,11 +1,25 @@
-# Vue 3 + Typescript + Vite
+# 介绍
 
-This template should help get you started developing with Vue 3 and Typescript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+> Des-UI 是一款基于 Vue 3 和 TypeScript 的 UI 组件库。
 
-## Recommended IDE Setup
+访问 [官方网站](https://ui.desnlee.top)
 
-- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
+&nbsp;
 
-## Type Support For `.vue` Imports in TS
+**写这个组件库有两个原因：**
 
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's `.vue` type support plugin by running `Volar: Switch TS Plugin on/off` from VSCode command palette.
+- 我是一个 UI 设计师
+- 我想要提高 Vue.js 3 的熟练度，并进行总结
+
+&nbsp;
+
+为了打磨技术，本项目从组件功能代码，组件样式设计，包括你现在看到的这个官网，几乎没有采用第三方库，都是全程亲手编写。
+
+***除非你是抱着看源代码的目的来的，否则不建议将此 UI 库用于生产环境。***
+
+&nbsp;
+
+**Tips：**
+
+- 历史提交信息较规范，你可以按提交的顺序逐个查看
+- 你也可以直接查看每个组件的源代码和示例，运行方法见 README.md。
