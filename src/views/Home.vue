@@ -6,7 +6,7 @@
         <h1>Des UI</h1>
         <h3>一个极简的 Vue.js 3.0 UI 组件库</h3>
         <p class = "actions">
-          <a class = "link-lesser" href = "https://github.com/desnlee" target = "_blank">
+          <a class = "link-lesser" href = "https://github.com/DesnLee/Des-UI" target = "_blank">
             <Icon name = "github" />
             <span>Github</span>
           </a>

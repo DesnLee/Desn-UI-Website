@@ -9,7 +9,7 @@
       <div class = "link-wrapper">
         <router-link to = "/">首页</router-link>
         <router-link to = "/doc/introduction">文档</router-link>
-        <a href = "https://github.com/desnlee" target = "_blank">
+        <a href = "https://github.com/DesnLee/Des-UI" target = "_blank">
           <Icon name = "github" />
           <span>Github</span>
         </a>
