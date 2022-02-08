@@ -91,7 +91,7 @@
                 background: $color-highlight;
                 display: block;
                 top: 0;
-                left: 0;
+                right: 0;
                 width: 4px;
                 height: 100%;
               }
