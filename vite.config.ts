@@ -1,13 +1,15 @@
 import VuePlugin from '@vitejs/plugin-vue';
 import path from 'path';
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
-import mdPlugin, { Mode } from 'vite-plugin-markdown';
+import Markdown from 'vite-plugin-md';
 
 // https://vitejs.dev/config/
 export default () => {
   return {
     plugins: [
-      VuePlugin(),
+      VuePlugin({
+        include: [ /\.vue$/, /\.md$/ ],
+      }),
       createSvgIconsPlugin({
         // 指定需要缓存的图标文件夹
         iconDirs: [ path.resolve(process.cwd(), 'src/assets/icons') ],
@@ -15,13 +17,7 @@ export default () => {
         symbolId: '[name]',
         customDomId: '__svg__icons__dom__',
       }),
-      mdPlugin({
-        mode: [
-          Mode.HTML,
-          Mode.TOC,
-          Mode.VUE
-        ]
-      }),
+      Markdown(),
     ],
   };
 }
