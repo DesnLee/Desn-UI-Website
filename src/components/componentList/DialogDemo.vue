@@ -1,5 +1,5 @@
 <template>
-  <article>
+  <article class = "component-article-container article-container">
     <h1>template 示例</h1>
     <Dialog v-model:visible = "isVisible" :cancel = "functionCancel" :ok = "functionOk">
       <template #title>

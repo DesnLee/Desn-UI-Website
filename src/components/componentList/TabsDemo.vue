@@ -1,5 +1,5 @@
 <template>
-  <article>
+  <article class = "component-article-container article-container">
     <h1>示例1</h1>
     <Tabs v-model:selected = "currentTitle">
       <Tab title = "tab1111">内容1</Tab>

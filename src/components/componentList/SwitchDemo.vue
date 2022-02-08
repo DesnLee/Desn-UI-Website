@@ -1,5 +1,5 @@
 <template>
-  <article>
+  <article class = "component-article-container article-container">
     <div class = "switch-wrapper">
       <Switch v-model:value = "largeValue" :text = "cnText" size = "large" />
       <span>大按钮（加文字）</span>
