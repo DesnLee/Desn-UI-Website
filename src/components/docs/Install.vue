@@ -1,11 +1,8 @@
 <template>
-  <article class = "markdown-body" v-html = "html">
+  <article class = "article-container">
+    <Install v-highlight></Install>
   </article>
 </template>
 
 <script lang = "ts" setup>
-  import { html } from '../../markdown/install.md';</script>
-
-<style lang = "scss" scoped>
-
-</style>
+  import Install from '../../markdown/install.md';</script>

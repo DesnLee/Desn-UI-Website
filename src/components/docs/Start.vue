@@ -1,11 +1,8 @@
 <template>
-<div>开始起飞！</div>
+  <article class = "article-container">
+    <Start v-highlight></Start>
+  </article>
 </template>
 
 <script lang = "ts" setup>
-
-</script>
-
-<style lang = "scss" scoped>
-
-</style>
+  import Start from '../../markdown/start.md';</script>
