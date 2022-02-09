@@ -1,58 +1,35 @@
 <template>
   <article class = "component-article-container article-container">
-    <h1>template 示例</h1>
-    <Dialog v-model:visible = "isVisible" :cancel = "functionCancel" :ok = "functionOk">
-      <template #title>
-        <strong>template Dialog</strong>
+  <h1 class = "components-h1">Dialog 组件</h1>
+  <ComponentCodeLayout>
+     <template #title>
+        template 示例
       </template>
-      <template #content>
-        <strong>这是一个可以点击蒙版区域关闭的 Dialog</strong>
-        <p>使用 template 构造</p>
+      <template #component>
+        <Dialog1 />
       </template>
-    </Dialog>
-    <Button theme = "link" @click = "toggle">打开 Dialog</Button>
-    <h1>function 示例</h1>
-    <Button theme = "link" @click = "onOpenDialog">打开 Dialog</Button>
+      <template #code>
+        {{ Dialog1Code }}
+      </template>
+  </ComponentCodeLayout>
+
+  <ComponentCodeLayout>
+     <template #title>
+        function 示例
+      </template>
+      <template #component>
+        <Dialog2 />
+      </template>
+      <template #code>
+        {{ Dialog2Code }}
+      </template>
+  </ComponentCodeLayout>
   </article>
 </template>
 
 <script lang = "ts" setup>
-  import { ref } from 'vue';
-  import Button from '../../lib/Button.vue';
-  import Dialog from '../../lib/Dialog.vue';
-  import { openDialog } from '../../lib/openDialog';
-
-  const isVisible = ref(false);
-
-  const toggle = () => {
-    isVisible.value = !isVisible.value;
-  };
-
-  const functionOk = () => {
-    console.log('ok');
-    return true;
-  };
-  const functionCancel = () => {
-    console.log('cancel');
-  };
-
-  const onOpenDialog = () => {
-    openDialog({
-      title: '生成的 Dialog',
-      content: '这是一个无法点击蒙版区域关闭的 Dialog 内容，使用 options 生成',
-      cancel: () => {console.log('Dialog - cancel');},
-      ok: () => {console.log('Dialog - ok');},
-      closeOnOverlay: false
-    });
-  };
-</script>
-
-<style lang = "scss" scoped>
-  h1 {
-    margin: 64px 0 24px 0;
-
-    &:first-child {
-      margin-top: 0;
-    }
-  }
-</style>
+  import Dialog1 from '../componentDemo/Dialog1.vue';
+  import Dialog1Code from '../componentDemo/Dialog1.vue?raw';
+  import Dialog2 from '../componentDemo/Dialog2.vue';
+  import Dialog2Code from '../componentDemo/Dialog2.vue?raw';
+  import ComponentCodeLayout from '../componentCodeLayout.vue';</script>
