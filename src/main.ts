@@ -9,17 +9,14 @@ import './lib/index.scss';
 import 'github-markdown-css';
 import './assets/style/highlight.scss';
 
-// 引入 highlight 核心和语言
-import hljs from 'highlight.js/lib/core';
-import javascript from 'highlight.js/lib/languages/javascript';
-import xml from 'highlight.js/lib/languages/xml';
-
-// 注册 highlight 语言
-hljs.registerLanguage('javascript', javascript);
-hljs.registerLanguage('xml', xml);
+// 引入自定义指令
+import highlight from './directives/highlight';
 
 // 创建 Vue App
 const app = createApp(App);
+
+// 添加自定义指令
+app.directive('highlight', highlight);
 
 // 挂载 App 到 DOM
 app.use(router).mount('#app');
