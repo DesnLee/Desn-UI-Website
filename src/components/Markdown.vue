@@ -18,14 +18,20 @@
       const route = useRoute();
       const content: any = shallowRef(null);
 
-  const props = defineProps({
-    name: { type: String }
-  });
+      const currentName: ComputedRef = computed(() => {
+        return route.params.name;
+      });
 
-  let content = shallowRef(null);
-  import(/* @vite-ignore */'../markdown/' + props.name + '.md').then(e => {
-    content.value = e.default;
-  });
+      watchEffect(() => {
+        if (route.path.startsWith('/doc/')) {
+          import(/* @vite-ignore */'../markdown/' + currentName.value + '.md')
+          .then(e => {
+            content.value = e.default;
+          }).catch(() => {
+            router.replace('/404');
+          });
+        }
+      });
 
       return {
         content,
