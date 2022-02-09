@@ -1,5 +1,5 @@
 <template>
-  <article class = "component-article-container article-container markdown-body">
+  <article class = "component-article-container article-container">
     <section>
       <h1>size 示例</h1>
       <div class = "wrapper">
