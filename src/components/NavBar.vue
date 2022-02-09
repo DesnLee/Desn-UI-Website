@@ -1,7 +1,7 @@
 <template>
   <div class = "nav-wrapper">
     <nav ref = "navBar">
-      <Icon v-if = "!isPC && currentRoute.indexOf('/doc') === 0" class = "menu" name = "menu" @click = "toggle"
+      <Icon v-if = "!isPC && isShowPath" class = "menu" name = "menu" @click = "toggle"
       />
       <router-link class = "logo-wrapper" to = "/">
         <Icon name = "logo" />
@@ -24,6 +24,7 @@
 
 <script lang = "ts" setup>
 import { inject, Ref } from 'vue';
+import { useRoute } from 'vue-router';
 import Icon from './Icon.vue';
 
 const props = defineProps({
@@ -34,7 +35,8 @@ const props = defineProps({
   ref: HTMLDivElement
 });
 
-const currentRoute = inject<Ref<string>>('currentRoute')!;
+const route = useRoute();
+const isShowPath = route.path.startsWith('/doc/') || route.path.startsWith('/components/');
 const isPC = inject<Ref<boolean>>('isPC');
 
 let asideVisible = inject<Ref<boolean>>('asideVisible')!;
