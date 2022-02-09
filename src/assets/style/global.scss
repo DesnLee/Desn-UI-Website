@@ -1,0 +1,32 @@
+.markdown-body, .component-article-container {
+  padding: 45px;
+
+  ul, ol {
+    list-style: disc;
+  }
+}
+
+@media (max-width: 767px) {
+  .markdown-body, .component-article-container {
+    padding: 15px;
+  }
+}
+
+.component-article-container {
+  background: #FFF;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+article.article-container {
+  display: block;
+  box-sizing: border-box;
+  min-width: 200px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.des-switch {
+  margin-right: 24px !important;
+}
