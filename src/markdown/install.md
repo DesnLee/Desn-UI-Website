@@ -2,13 +2,13 @@
 
 打开终端运行下列命令：
 
-```shell
+```
 npm install des-ui
 ```
 
 或
 
-```shell
+```
 yarn add des-ui
 ```
 
