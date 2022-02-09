@@ -91,7 +91,7 @@
         &::after {
           position: absolute;
           left: 0;
-          bottom: -2px;
+          bottom: -6px;
           content: "";
           width: 0;
           height: 2px;
