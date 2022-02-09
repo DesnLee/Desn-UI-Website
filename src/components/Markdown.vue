@@ -1,19 +1,22 @@
 <template>
   <article class = "article-container markdown-body">
     <keep-alive>
-      <Component :is = "content" />
+      <transition mode = "out-in" name = "doc-content">
+        <Component :is = "content" :key = "currentName" v-highlight />
+      </transition>
     </keep-alive>
   </article>
 </template>
 
-<script lang = "ts" setup>
-  import { shallowRef, onUpdated } from 'vue';
+<script lang = "ts">
+  import { shallowRef, watchEffect, computed, ComputedRef } from 'vue';
+  import { useRoute } from 'vue-router';
+  import router from '../router';
 
-  import hljs from 'highlight.js/lib/core';
-
-  hljs.configure({
-    ignoreUnescapedHTML: true
-  });
+  export default {
+    setup() {
+      const route = useRoute();
+      const content: any = shallowRef(null);
 
   const props = defineProps({
     name: { type: String }
@@ -24,10 +27,11 @@
     content.value = e.default;
   });
 
-  onUpdated(() => {
-    const blocks = document.querySelectorAll('pre code');
-    blocks.forEach((block: HTMLDivElement) => {
-      hljs.highlightElement(block);
-    });
-  });
+      return {
+        content,
+        currentName
+      };
+    }
+  };
+
 </script>
