@@ -41,3 +41,13 @@
   };
 
 </script>
+
+<style lang = "scss" scoped>
+  .docs-content-enter-active, .doc-content-leave-active {
+    transition: opacity .2s ease;
+  }
+
+  .doc-content-enter-from, .doc-content-leave-to {
+    opacity: 0;
+  }
+</style>
