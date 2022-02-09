@@ -1,22 +1,21 @@
 <template>
   <article class = "component-article-container article-container">
-    <h1>示例1</h1>
-    <Tabs v-model:selected = "currentTitle">
-      <Tab title = "tab1111">内容1</Tab>
-      <Tab title = "tab2222222">内容2</Tab>
-      <Tab title = "tab33">内容3</Tab>
-    </Tabs>
+    <h1 class = "components-h1">Switch 组件</h1>
+    <ComponentCodeLayout>
+      <template #title>
+        常规 Tabs
+      </template>
+      <template #component>
+        <component :is = "Tabs1" />
+      </template>
+      <template #code>
+        {{ Tabs1Code }}
+      </template>
+    </ComponentCodeLayout>
   </article>
 </template>
 
 <script lang = "ts" setup>
-import { ref } from 'vue';
-import Tab from '../../lib/Tab.vue';
-import Tabs from '../../lib/Tabs.vue';
-
-const currentTitle = ref('tab1111');
-
-</script>
-
-<style lang = "scss" scoped>
-</style>
+  import ComponentCodeLayout from '../componentCodeLayout.vue';
+  import Tabs1 from '../componentDemo/Tabs1.vue';
+  import Tabs1Code from '../componentDemo/Tabs1.vue?raw';</script>
