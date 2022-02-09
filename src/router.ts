@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import { h } from 'vue';
 
 import ButtonDemo from './components/componentList/ButtonDemo.vue';
 import DialogDemo from './components/componentList/DialogDemo.vue';
@@ -20,24 +19,22 @@ export default createRouter({
       path: '/doc',
       component: Doc,
       children: [
-        {
-          path: 'start',
-          component: h(Markdown, { name: 'start', key: 'start' })
-        },
-        {
-          path: 'install',
-          component: h(Markdown, { name: 'install', key: 'install' })
-        },
-        {
-          path: 'introduction',
-          component: h(Markdown, { name: 'introduction', key: 'introduction' })
-        },
+        { path: '', redirect: '/doc/introduction' },
+        { path: '/doc/:name', component: Markdown },
+      ]
+    },
+    {
+      path: '/components',
+      component: Doc,
+      children: [
+        { path: '', redirect: '/components/switch' },
         { path: 'switch', component: SwitchDemo },
         { path: 'button', component: ButtonDemo },
         { path: 'dialog', component: DialogDemo },
         { path: 'tabs', component: TabsDemo },
       ]
     },
+    { path: '/404', component: Notfound },
     { path: '/:pathMatch(.*)', component: Notfound }
   ],
 });

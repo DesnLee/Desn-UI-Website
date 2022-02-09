@@ -20,7 +20,7 @@
       <ol class = "link-list">
         <li v-for = "(component, index) in componentList" :key = " index "
         >
-        <router-link :to = " '/doc/' + component.name.toLowerCase() " class = "link">{{
+        <router-link :to = " '/components/' + component.name.toLowerCase() " class = "link">{{
             component.name
           }}</router-link>
       </li>
