@@ -7,8 +7,8 @@
 </template>
 
 <script lang = "ts" setup>
-import Tabs from '../../lib/Tabs.vue';
-import Tab from '../../lib/Tab.vue';
+import Tabs from '../../lib/components/Tabs.vue';
+import Tab from '../../lib/components/Tab.vue';
 import { ref } from 'vue';
 
 const currentTitle = ref('tab1111');

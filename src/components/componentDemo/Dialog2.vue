@@ -3,8 +3,8 @@
 </template>
 
 <script lang = "ts" setup>
-  import Button from '../../lib/Button.vue';
-  import { openDialog } from '../../lib/openDialog';
+  import Button from '../../lib/components/Button.vue';
+  import { openDialog } from '../../lib/components/openDialog';
 
   const onOpenDialog = () => {
     openDialog({

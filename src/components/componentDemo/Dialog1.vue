@@ -18,8 +18,8 @@
 
 <script lang = "ts" setup>
   import { ref } from 'vue';
-  import Dialog from '../../lib/Dialog.vue';
-  import Button from '../../lib/Button.vue';
+  import Dialog from '../../lib/components/Dialog.vue';
+  import Button from '../../lib/components/Button.vue';
 
   const isVisible = ref(false);
 

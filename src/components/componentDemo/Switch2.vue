@@ -6,7 +6,7 @@
 
 <script lang = "ts" setup>
   import { ref } from 'vue';
-  import Switch from '../../lib/Switch.vue';
+  import Switch from '../../lib/components/Switch.vue';
 
   const largeValue = ref<boolean>(false);
   const normalValue = ref<boolean>(false);

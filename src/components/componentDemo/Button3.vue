@@ -19,4 +19,4 @@
 </template>
 
 <script lang = "ts" setup>
-  import Button from '../../lib/Button.vue';</script>
+  import Button from '../../lib/components/Button.vue';</script>

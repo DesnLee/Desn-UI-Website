@@ -21,7 +21,7 @@
 
 <script lang = "ts" setup>
   import { computed, ref } from 'vue';
-  import Button from '../lib/Button.vue';
+  import Button from '../lib/components/Button.vue';
 
   const props = defineProps({
     title: {
