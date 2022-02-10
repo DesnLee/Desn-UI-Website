@@ -1,6 +1,6 @@
 # 介绍
 
-> Des-UI 是一款基于 Vue 3 和 TypeScript 的 UI 组件库。
+> Desn-UI 是一款基于 Vue 3 和 TypeScript 的 UI 组件库。
 
 访问 [官方网站](https://ui.desnlee.top)
 

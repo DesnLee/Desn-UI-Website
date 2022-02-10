@@ -1,10 +1,10 @@
 <template>
   <template v-if = "visible">
     <teleport to = "body">
-      <div class = "des-dialog-overlay" @click.self = "clickOverlay">
-        <div class = "des-dialog-wrapper">
-          <div class = "des-dialog">
-            <div class = "des-dialog-close-icon" @click = "close">
+      <div class = "desn-dialog-overlay" @click.self = "clickOverlay">
+        <div class = "desn-dialog-wrapper">
+          <div class = "desn-dialog">
+            <div class = "desn-dialog-close-icon" @click = "close">
               <svg height = "16" viewBox = "0 0 1024 1024" width = "16" xmlns = "http://www.w3.org/2000/svg"
               ><path
                 d = "M92.3 955c-6.4 0-12.9-2.5-17.8-7.4-9.8-9.8-9.8-25.7 0-35.6L912.6 73.9c9.8-9.8 25.7-9.8 35.6 0 9.8 9.8 9.8 25.7 0 35.6L110 947.6c-4.9 4.9-11.3 7.4-17.7 7.4z"
@@ -81,7 +81,7 @@ export default {
 </script>
 
 <style lang = "scss">
-  .des-dialog-overlay {
+  .desn-dialog-overlay {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -90,7 +90,7 @@ export default {
     z-index: 20;
     background: #00000033;
 
-    > .des-dialog-wrapper {
+    > .desn-dialog-wrapper {
       z-index: 20;
       border-radius: 8px;
       overflow: hidden;
@@ -100,14 +100,14 @@ export default {
       top: 50%;
       transform: translate(-50%, -50%);
 
-      > .des-dialog {
+      > .desn-dialog {
         background: #FFF;
         padding: 16px 24px;
         width: 320px;
         display: flex;
         flex-direction: column;
 
-        > .des-dialog-close-icon {
+        > .desn-dialog-close-icon {
           cursor: pointer;
           position: absolute;
           width: 16px;

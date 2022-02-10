@@ -1,6 +1,6 @@
 <template>
-  <button :class = "[{ 'des-checked': value }, `des-switch-${size}`]"
-          :style = "{ background: value ? color : normalColor }" class = "des-switch" @click = "toggle"
+  <button :class = "[{ 'desn-checked': value }, `desn-switch-${size}`]"
+          :style = "{ background: value ? color : normalColor }" class = "desn-switch" @click = "toggle"
   >
     <span class = "circle"></span>
     <span v-if = "text" class = "text">{{ text[!value + ''] }}</span>
@@ -39,13 +39,13 @@ $btn-w-large: 72px;
 $gap-large: 4px;
 $span-wh-large: $btn-h-large - $gap-large * 2;
 
-.des-switch {
+.desn-switch {
   display: inline-block;
 
-  &.des-switch-small {
+  &.desn-switch-small {
     width: $btn-w-small;
     height: $btn-h-small;
-    border-radius: $btn-h-small/2;
+    border-radius: calc(#{$btn-h-small} / 2);
     box-shadow: inset 0 0 (2 * $gap-small) #40424455;
 
     > .circle {
@@ -53,35 +53,35 @@ $span-wh-large: $btn-h-large - $gap-large * 2;
       top: $gap-small;
       width: $span-wh-small;
       height: $span-wh-small;
-      border-radius: $span-wh-small/2;
+      border-radius: calc(#{$span-wh-small} / 2);
       box-shadow: 0 0 (2 * $gap-small) #40424455;
 
       &::after {
-        width: $btn-h-small/4;
-        height: $btn-h-small/4;
+        width: calc(#{$btn-h-small} / 4);
+        height: calc(#{$btn-h-small} / 4);
       }
     }
 
-    &.des-checked > .circle {
+    &.desn-checked > .circle {
       left: calc(100% - #{$span-wh-small + $gap-small});
     }
 
     .text {
       font-size: 12px;
-      top: ($btn-h-small - 12px) / 2;
+      top: calc(#{$btn-h-small - 12px} / 2);
       left: calc(100% - #{24px + $gap-small});
     }
 
-    &.des-checked > .text {
+    &.desn-checked > .text {
       left: $gap-small;
       color: #FFF;
     }
   }
 
-  &.des-switch-normal {
+  &.desn-switch-normal {
     width: $btn-w-normal;
     height: $btn-h-normal;
-    border-radius: $btn-h-normal/2;
+    border-radius: calc(#{$btn-h-normal} / 2);
     box-shadow: inset 0 0 (2 * $gap-normal) #40424455;
 
     > .circle {
@@ -89,35 +89,35 @@ $span-wh-large: $btn-h-large - $gap-large * 2;
       top: $gap-normal;
       width: $span-wh-normal;
       height: $span-wh-normal;
-      border-radius: $span-wh-normal/2;
+      border-radius: calc(#{$span-wh-normal} / 2);
       box-shadow: 0 0 (2 * $gap-normal) #40424455;
 
       &::after {
-        width: $btn-h-normal/3;
-        height: $btn-h-normal/3;
+        width: calc(#{$btn-h-normal} / 3);
+        height: calc(#{$btn-h-normal} / 3);
       }
     }
 
-    &.des-checked > .circle {
+    &.desn-checked > .circle {
       left: calc(100% - #{$span-wh-normal + $gap-normal});
     }
 
     .text {
       font-size: 14px;
-      top: ($btn-h-normal - 14px) / 2;
+      top: calc(#{$btn-h-normal - 14px} / 2);
       left: calc(100% - #{28px + $gap-normal});
     }
 
-    &.des-checked > .text {
+    &.desn-checked > .text {
       left: $gap-normal;
       color: #FFF;
     }
   }
 
-  &.des-switch-large {
+  &.desn-switch-large {
     width: $btn-w-large;
     height: $btn-h-large;
-    border-radius: $btn-h-large/2;
+    border-radius: calc(#{$btn-h-large} / 2);
     box-shadow: inset 0 0 (2 * $gap-large) #40424455;
 
     > .circle {
@@ -125,33 +125,32 @@ $span-wh-large: $btn-h-large - $gap-large * 2;
       top: $gap-large;
       width: $span-wh-large;
       height: $span-wh-large;
-      border-radius: $span-wh-large/2;
+      border-radius: calc(#{$span-wh-large} / 2);
       box-shadow: 0 0 (2 * $gap-large) #40424455;
 
       &::after {
-        width: $btn-h-large/3;
-        height: $btn-h-large/3;
+        width: calc(#{$btn-h-large} / 3);
+        height: calc(#{$btn-h-large} / 3);
       }
     }
 
-    &.des-checked > .circle {
+    &.desn-checked > .circle {
       left: calc(100% - #{$span-wh-large + $gap-large});
     }
 
     .text {
       font-size: 15px;
-      top: ($btn-h-large - 15px) / 2;
+      top: calc(#{$btn-h-large - 15px} / 2);
       left: calc(100% - #{30px + $gap-large});
     }
 
-    &.des-checked > .text {
+    &.desn-checked > .text {
       left: $gap-large;
       color: #FFF;
     }
   }
 
   position: relative;
-  //background: #30313324;
   border: none;
   transition: background 0.25s ease-in-out;
 
@@ -168,11 +167,6 @@ $span-wh-large: $btn-h-large - $gap-large * 2;
       animation: shine 1s ease-out infinite;
     }
   }
-
-  //&.checked {
-  //  background: #42B983;
-  //}
-
   > .circle {
     z-index: 1;
     position: absolute;

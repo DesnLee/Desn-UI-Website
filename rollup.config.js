@@ -10,13 +10,13 @@ export default {
     globals : {
       vue : 'Vue'
     },
-    name : 'Des-ui',
-    file : 'dist/lib/Des-ui.js',
+    name : 'Desn-ui',
+    file : 'dist/lib/Desn-ui.js',
     format : 'umd',
     plugins : [terser()]
   }, {
-    name : 'Des-ui',
-    file : 'dist/lib/Des-ui.esm.js',
+    name : 'Desn-ui',
+    file : 'dist/lib/Desn-ui.esm.js',
     format : 'es',
     plugins : [terser()]
   }],

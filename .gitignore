@@ -6,3 +6,5 @@ dist-ssr
 .idea
 .vscode
 deploy.sh
+package2.json
+package1.json

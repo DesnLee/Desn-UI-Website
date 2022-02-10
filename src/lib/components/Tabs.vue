@@ -1,12 +1,12 @@
 <template>
-  <div class = "des-tabs">
-    <div ref = "container" class = "des-tabs-nav">
+  <div class = "desn-tabs">
+    <div ref = "container" class = "desn-tabs-nav">
       <div v-for = "(title, index) in titles" :key = "index" :ref = "setSelectedTab"
-           :class = "{selected: selected === title}" class = "des-tabs-nav-item" @click = "switchTab(title)"
+           :class = "{selected: selected === title}" class = "desn-tabs-nav-item" @click = "switchTab(title)"
       >{{ title }}</div>
-      <div ref = "line" class = "des-tabs-nav-line"></div>
+      <div ref = "line" class = "desn-tabs-nav-line"></div>
     </div>
-    <div class = "des-tabs-content">
+    <div class = "desn-tabs-content">
       <transition mode = "out-in" name = "tabs-content">
         <component :is = "currentComponent" :key = "selected" />
       </transition>
@@ -65,17 +65,17 @@
 </script>
 
 <style lang = "scss">
-  .des-tabs {
+  .desn-tabs {
     display: flex;
     flex-direction: column;
 
-    > .des-tabs-nav {
+    > .desn-tabs-nav {
       position: relative;
       display: flex;
       border-bottom: 1px solid #DDD;
       color: #404244;
 
-      > .des-tabs-nav-item {
+      > .desn-tabs-nav-item {
         padding: 8px 0;
         margin-right: 24px;
         font-weight: bold;
@@ -86,7 +86,7 @@
         }
       }
 
-      .des-tabs-nav-line {
+      .desn-tabs-nav-line {
         width: 30px;
         height: 2px;
         position: absolute;
@@ -96,7 +96,7 @@
       }
     }
 
-    > .des-tabs-content {
+    > .desn-tabs-content {
       margin-top: 12px;
     }
   }
