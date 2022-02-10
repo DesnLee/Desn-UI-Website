@@ -7,20 +7,26 @@
   </button>
 </template>
 
-<script lang = "ts" setup>
-const props = defineProps({
-  value: { type: Boolean, default: false },
-  size: { type: String, default: 'normal' },
-  color: { type: String, default: '#42B983' },
-  text: { type: Object }
-});
+<script lang = "ts">
+  export default {
+    props: {
+      value: { type: Boolean, default: false },
+      size: { type: String, default: 'normal' },
+      color: { type: String, default: '#42B983' },
+      text: { type: Object }
+    },
+    setup(props, context) {
+      const normalColor = '#30313324';
 
-const normalColor = '#30313324';
-
-const emit = defineEmits([ 'update:value' ]);
-const toggle = () => {
-  emit('update:value', !props.value);
-};
+      const toggle = () => {
+        context.emit('update:value', !props.value);
+      };
+      return {
+        normalColor,
+        toggle
+      };
+    }
+  };
 </script>
 
 <style lang = "scss">

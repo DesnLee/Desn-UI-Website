@@ -6,10 +6,22 @@
   </Tabs>
 </template>
 
-<script lang = "ts" setup>
-import Tabs from '../../lib/components/Tabs.vue';
-import Tab from '../../lib/components/Tab.vue';
-import { ref } from 'vue';
+<script lang = "ts">
+  import Tabs from '../../lib/components/Tabs.vue';
+  import Tab from '../../lib/components/Tab.vue';
+  import { ref } from 'vue';
 
-const currentTitle = ref('tab1111');
+  export default {
+    components: {
+      Tab,
+      Tabs
+    },
+    setup() {
+      const currentTitle = ref('tab1111');
+
+      return {
+        currentTitle,
+      };
+    }
+  };
 </script>

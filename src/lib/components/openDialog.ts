@@ -2,8 +2,8 @@ import { createApp, h } from 'vue';
 import Dialog from './Dialog.vue';
 
 interface Options {
-  title?: String,
-  content?: String,
+  title?: Function,
+  content?: Function,
   ok?: Function,
   cancel?: Function,
   closeOnOverlay?: Boolean
@@ -11,8 +11,8 @@ interface Options {
 
 export const openDialog = (options: Options) => {
   let { title, content, ok, cancel, closeOnOverlay } = options;
-  title = title ? title : 'Dialog 默认标题';
-  content = content ? content : 'Dialog 默认内容';
+  title = title ? title : () => {return 'Dialog 默认标题';};
+  content = content ? content : () => {return 'Dialog 默认内容';};
   ok = ok ? ok : () => {console.log('Dialog - 默认ok');};
   cancel = cancel ? cancel : () => {console.log('Dialog - 默认cancel');};
 

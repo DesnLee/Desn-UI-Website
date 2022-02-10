@@ -14,54 +14,66 @@
   </div>
 </template>
 
-<script lang = "ts" setup>
+<script lang = "ts">
   import { computed, onMounted, ref, useSlots, watchEffect } from 'vue';
   import Tab from './Tab.vue';
 
-  const props = defineProps({
-    selected: { type: String, required: true }
-  });
-  const emit = defineEmits([ 'update:selected' ]);
+  export default {
+    props: {
+      selected: { type: String, required: true }
+    },
+    setup(props, context) {
+      const children = useSlots().default();
+      children.forEach(child => {
+        if ((child.type as any).name !== Tab.name) {
+          throw new Error('Tabs 组件内容必须为 Tab 组件');
+        }
+      });
 
-  const children = useSlots().default();
-  children.forEach(child => {
-    if (child.type !== Tab) {
-      throw new Error('Tabs 组件内容必须为 Tab 组件');
+      const titles = children.map(child => {
+        return child.props.title;
+      });
+
+      const currentComponent = computed(() => {
+        return children.filter(child => {
+          return child.props.title === props.selected;
+        })[0];
+      });
+
+      const switchTab = (title) => {
+        context.emit('update:selected', title);
+      };
+
+      const selectedTab = ref<HTMLDivElement>(null);
+      const container = ref<HTMLDivElement>(null);
+      const line = ref<HTMLDivElement>(null);
+
+      const setSelectedTab = el => {
+        if (el?.classList.contains('selected')) {
+          selectedTab.value = el;
+        }
+      };
+
+      onMounted(() => {
+        watchEffect(() => {
+          const { width, left: elLeft } = selectedTab.value.getBoundingClientRect();
+          const { left: containerLeft } = container.value.getBoundingClientRect();
+          line.value.style.width = width + 'px';
+          line.value.style.left = (elLeft - containerLeft) + 'px';
+        });
+      });
+
+      return {
+        titles,
+        setSelectedTab,
+        switchTab,
+        currentComponent,
+        selectedTab,
+        container,
+        line
+      };
     }
-  });
-
-  const titles = children.map(child => {
-    return child.props.title;
-  });
-
-  const currentComponent = computed(() => {
-    return children.filter(child => {
-      return child.props.title === props.selected;
-    })[0];
-  });
-
-  const switchTab = (title) => {
-    emit('update:selected', title);
   };
-
-  const selectedTab = ref<HTMLDivElement>(null);
-  const container = ref<HTMLDivElement>(null);
-  const line = ref<HTMLDivElement>(null);
-
-  const setSelectedTab = el => {
-    if (el?.classList.contains('selected')) {
-      selectedTab.value = el;
-    }
-  };
-
-  onMounted(() => {
-    watchEffect(() => {
-      const { width, left: elLeft } = selectedTab.value.getBoundingClientRect();
-      const { left: containerLeft } = container.value.getBoundingClientRect();
-      line.value.style.width = width + 'px';
-      line.value.style.left = (elLeft - containerLeft) + 'px';
-    });
-  });
 </script>
 
 <style lang = "scss">

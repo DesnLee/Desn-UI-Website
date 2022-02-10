@@ -11,21 +11,28 @@
   </button>
 </template>
 
-<script lang = "ts" setup>
-  const props = defineProps({
-    theme: { type: String, default: 'button' },
-    size: { type: String, default: 'normal' },
-    level: { type: String, default: 'primary' },
-    disabled: { type: Boolean, default: false },
-    loading: { type: Boolean, default: false },
-  });
+<script lang = "ts">
+  export default {
+    props: {
+      theme: { type: String, default: 'button' },
+      size: { type: String, default: 'normal' },
+      level: { type: String, default: 'primary' },
+      disabled: { type: Boolean, default: false },
+      loading: { type: Boolean, default: false },
+    },
+    setup(props) {
+      const classList = [
+        `desn-button-theme-${ props.theme }`,
+        `desn-button-size-${ props.size }`,
+        `desn-button-level-${ props.level }`,
+        { [`desn-button-loading`]: props.loading },
+      ];
 
-  const classList = [
-    `desn-button-theme-${ props.theme }`,
-    `desn-button-size-${ props.size }`,
-    `desn-button-level-${ props.level }`,
-    { [`desn-button-loading`]: props.loading },
-  ];
+      return {
+        classList
+      };
+    }
+  };
 </script>
 
 <style lang = "scss">

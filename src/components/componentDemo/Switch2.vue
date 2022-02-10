@@ -4,16 +4,28 @@
   <Switch v-model:value = "smallValue" :text = "cnText" size = "small" />
 </template>
 
-<script lang = "ts" setup>
+<script lang = "ts">
   import { ref } from 'vue';
   import Switch from '../../lib/components/Switch.vue';
 
-  const largeValue = ref<boolean>(false);
-  const normalValue = ref<boolean>(false);
-  const smallValue = ref<boolean>(false);
-
-  const cnText = {
-    'true': '开启',
-    'false': '关闭'
+  export default {
+    components: {
+      Switch
+    },
+    setup() {
+      const largeValue = ref<boolean>(false);
+      const normalValue = ref<boolean>(false);
+      const smallValue = ref<boolean>(false);
+      const cnText = {
+        'true': '开启',
+        'false': '关闭'
+      };
+      return {
+        largeValue,
+        normalValue,
+        smallValue,
+        cnText
+      };
+    }
   };
 </script>
