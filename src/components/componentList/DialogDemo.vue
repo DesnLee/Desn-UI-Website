@@ -1,29 +1,8 @@
 <template>
   <article class = "component-article-container article-container">
-  <h1 class = "components-h1">Dialog 组件</h1>
-  <ComponentCodeLayout>
-     <template #title>
-        template 示例
-      </template>
-      <template #component>
-        <Dialog1 />
-      </template>
-      <template #code>
-        {{ Dialog1Code }}
-      </template>
-  </ComponentCodeLayout>
-
-  <ComponentCodeLayout>
-     <template #title>
-        function 示例
-      </template>
-      <template #component>
-        <Dialog2 />
-      </template>
-      <template #code>
-        {{ Dialog2Code }}
-      </template>
-  </ComponentCodeLayout>
+    <h1 class = "components-h1">Dialog 组件</h1>
+    <ComponentCodeLayout :code = "Dialog1Code" :component = "Dialog1" title = "template 示例" />
+    <ComponentCodeLayout :code = "Dialog2Code" :component = "Dialog2" title = "function 示例" />
   </article>
 </template>
 

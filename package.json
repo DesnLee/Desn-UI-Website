@@ -10,10 +10,10 @@
   "dependencies": {
     "github-markdown-css": "^5.1.0",
     "highlight.js": "^11.4.0",
-    "vue": "^3.2.25",
     "vue-router": "4.0.12"
   },
   "devDependencies": {
+    "vue": "^3.2.25",
     "@types/node": "^17.0.16",
     "@vitejs/plugin-vue": "^2.1.0",
     "fast-glob": "^3.2.11",

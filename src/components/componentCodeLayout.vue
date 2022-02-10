@@ -1,18 +1,20 @@
 <template>
   <div class = "components-wrapper">
     <h2 class = "components-h2">
-      <slot name = "title"></slot>
+    {{ title }}
     </h2>
     <div class = "components-demo">
       <div class = "component-instance">
-        <slot name = "component"></slot>
+        <component :is = "component" />
       </div>
       <Button class = "showCode" level = "lesser" @click = "switchCodeVisible">{{ btnText }}</Button>
     </div>
     <transition name = "code">
-      <pre v-if = "codeVisible" v-highlight class = "components-code">
-        <code><slot name = "code"></slot></code>
-      </pre>
+      <div v-if = "codeVisible" class = "components-code">
+        <pre v-highlight>
+          <code>{{ code }}</code>
+        </pre>
+      </div>
     </transition>
   </div>
 </template>
@@ -21,6 +23,20 @@
   import { computed, ref } from 'vue';
   import Button from '../lib/Button.vue';
 
+  const props = defineProps({
+    title: {
+      type: String,
+      required: true
+    },
+    component: {
+      type: Object,
+      required: true
+    },
+    code: {
+      type: String,
+      required: true
+    },
+  });
   const codeVisible = ref(false);
   const switchCodeVisible = () => {
     codeVisible.value = !codeVisible.value;
@@ -54,8 +70,9 @@
       border-top: 1px solid #EEE;
 
       > .component-instance {
-        display: flex;
-        align-items: flex-end;
+        > :deep(div) {
+          padding: 12px 0;
+        }
       }
 
       > .showCode {
