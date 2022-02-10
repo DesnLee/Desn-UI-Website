@@ -1,6 +1,7 @@
 {
   "name": "desn-ui-web",
   "version": "0.0.1",
+  "license": "MIT",
   "scripts": {
     "dev": "vite --port 8888 --host",
     "build": "vue-tsc --noEmit && vite build",
@@ -15,6 +16,7 @@
   "devDependencies": {
     "@types/node": "^17.0.16",
     "@vitejs/plugin-vue": "^2.1.0",
+    "desn-ui": "^0.0.12",
     "fast-glob": "^3.2.11",
     "typescript": "^4.4.4",
     "vite": "^2.7.2",
