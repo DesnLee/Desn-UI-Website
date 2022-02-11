@@ -21,8 +21,8 @@
 
 **Tips：**
 
-- 历史提交信息较规范，你可以按提交的顺序逐个查看
-- 你也可以直接查看每个组件的源代码和示例，运行方法见 README.md。
+- 历史提交信息较规范，你可以按提交的顺序逐个查看（发布前组件库提交记录在 [此仓库](https://github.com/DesnLee/Desn-UI-Website) ，发布后的记录请至 [组件库源码仓库](https://github.com/DesnLee/Desn-UI) 查看）
+- 你也可以前往 [组件库源码仓库](https://github.com/DesnLee/Desn-UI) 查看每个组件的源代码和示例，运行方法见 README.md。
 
 ---
 下一节：[安装](/doc/install)

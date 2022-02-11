@@ -5,7 +5,7 @@
 然后在你的代码中写入下面的代码
 
 ```javascript
-import { Button, Tabs, Switch, Dialog } from 'desn-ui';
+import { Button, Tabs, Tab, Switch, Dialog } from 'desn-ui';
 ```
 
 就可以使用我提供的组件了。
@@ -17,18 +17,17 @@ import { Button, Tabs, Switch, Dialog } from 'desn-ui';
 ```html
 
 <template>
-  <div>
-    <Button>这是一个按钮</Button>
-  </div>
+  <Button>这是一个默认按钮</Button>
 </template>
 
 <script>
-import { Button, Tabs, Switch, Dialog } from "desn-ui"
+import { Button, Tabs, Tab, Switch, Dialog } from "desn-ui"
 
 export default {
   components : {
     Button,
     Tabs,
+    Tab,
     Switch,
     Dialog
   }
