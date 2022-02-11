@@ -8,7 +8,7 @@ import './assets/style/reset.scss';
 import './assets/style/global.scss';
 import './assets/style/highlight.scss';
 import 'github-markdown-css';
-import './lib/styles/index.scss';
+import 'desn-ui/lib/index.css';
 
 // 引入自定义指令
 import highlight from './directives/highlight';
