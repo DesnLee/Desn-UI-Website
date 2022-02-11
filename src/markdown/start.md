@@ -5,6 +5,7 @@
 然后在你的代码中写入下面的代码
 
 ```javascript
+import 'desn-ui/lib/index.css';
 import { Button, Tabs, Tab, Switch, Dialog } from 'desn-ui';
 ```
 
