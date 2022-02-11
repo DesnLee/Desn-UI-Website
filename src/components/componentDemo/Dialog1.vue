@@ -16,35 +16,21 @@
 
 </template>
 
-<script lang = "ts">
+<script lang = "ts" setup>
   import { ref } from 'vue';
-  import Dialog from '../../lib/components/Dialog.vue';
-  import Button from '../../lib/components/Button.vue';
+  import { Dialog } from 'desn-ui';
+  import { Button } from 'desn-ui';
 
-  export default {
-    components: {
-      Dialog,
-      Button
-    },
-    setup() {
-      const isVisible = ref(false);
-      const toggle = () => {
-        isVisible.value = !isVisible.value;
-      };
-      const functionOk = () => {
-        console.log('ok');
-        return true;
-      };
-      const functionCancel = () => {
-        console.log('cancel');
-      };
 
-      return {
-        isVisible,
-        toggle,
-        functionOk,
-        functionCancel
-      };
-    }
+  const isVisible = ref(false);
+  const toggle = () => {
+    isVisible.value = !isVisible.value;
+  };
+  const functionOk = () => {
+    console.log('ok');
+    return true;
+  };
+  const functionCancel = () => {
+    console.log('cancel');
   };
 </script>

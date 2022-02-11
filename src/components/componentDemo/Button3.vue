@@ -18,12 +18,6 @@
   </div>
 </template>
 
-<script lang = "ts">
-  import Button from '../../lib/components/Button.vue';
-
-  export default {
-    components: {
-      Button
-    }
-  };
+<script lang = "ts" setup>
+  import { Button } from 'desn-ui';
 </script>

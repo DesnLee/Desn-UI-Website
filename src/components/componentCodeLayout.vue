@@ -20,8 +20,8 @@
 </template>
 
 <script lang = "ts" setup>
-  import { computed, ref } from 'vue';
-  import Button from '../lib/components/Button.vue';
+  import { computed, ref, onMounted } from 'vue';
+  import { Button } from 'desn-ui';
 
   const props = defineProps({
     title: {
@@ -45,6 +45,9 @@
   const btnText = computed(() => {
     return codeVisible.value ? '隐藏代码' : '查看代码';
   });
+    onMounted(() => {
+        window.scroll(0,0)
+  })
 </script>
 
 <style lang = "scss" scoped>
@@ -71,7 +74,12 @@
 
       > .component-instance {
         > :deep(div) {
-          padding: 12px 0;
+          > * {
+            margin: 0 12px 12px 0;
+          }
+        }
+        > :deep(*) {
+          margin: 0 12px 12px 0;
         }
       }
 

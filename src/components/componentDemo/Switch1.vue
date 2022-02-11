@@ -4,24 +4,11 @@
   <Switch v-model:value = "smallValue" size = "small" />
 </template>
 
-<script lang = "ts">
+<script lang = "ts" setup>
   import { ref } from 'vue';
-  import Switch from '../../lib/components/Switch.vue';
+  import { Switch } from 'desn-ui';
 
-  export default {
-    components: {
-      Switch
-    },
-    setup() {
-      const largeValue = ref<boolean>(false);
-      const normalValue = ref<boolean>(false);
-      const smallValue = ref<boolean>(false);
-
-      return {
-        largeValue,
-        normalValue,
-        smallValue
-      };
-    }
-  };
+  const largeValue = ref<boolean>(false);
+  const normalValue = ref<boolean>(false);
+  const smallValue = ref<boolean>(false);
 </script>
