@@ -35,6 +35,7 @@
 </template>
 
 <script lang = "ts">
+import { watchEffect } from 'vue';
 import Button from './Button.vue';
 
 export default {
@@ -70,6 +71,18 @@ export default {
       close();
     };
 
+    const moveEvent = e => {e.preventDefault();}
+    watchEffect(() => {
+      console.log(props.visible);
+      if(props.visible){
+        document.body.style.overflow='hidden';
+        document.addEventListener("touchmove",moveEvent,false);//禁止页面滑动
+      }else{
+        document.body.style.overflow = '';//出现滚动条
+        document.removeEventListener("touchmove", moveEvent, false);
+      }
+    })
+
     return {
       close,
       clickOverlay,
@@ -82,11 +95,11 @@ export default {
 
 <style lang = "scss">
   .desn-dialog-overlay {
-    position: absolute;
+    position: fixed;
     top: 0;
-    bottom: 0;
     left: 0;
-    right: 0;
+    width: 100%;
+    height: 100%;
     z-index: 20;
     background: #00000033;
 

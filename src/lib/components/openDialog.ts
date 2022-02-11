@@ -34,6 +34,8 @@ export const openDialog = (options: Options) => {
           'onUpdate:visible': (vis: Boolean) => {
             if (!vis) {
               close();
+              document.body.style.overflow = '';//出现滚动条
+              document.removeEventListener("touchmove", e => {e.preventDefault();}, false);
             }
           },
           cancel,
