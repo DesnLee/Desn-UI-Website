@@ -577,10 +577,10 @@ define-property@^2.0.2:
     is-descriptor "^1.0.2"
     isobject "^3.0.1"
 
-desn-ui@^0.0.12:
-  version "0.0.12"
-  resolved "https://registry.yarnpkg.com/desn-ui/-/desn-ui-0.0.12.tgz#4e531f64e0eb8210e786b8ff630df16a05edd69b"
-  integrity sha512-Eo/5AivVzMCJ64T6dCp/K0RRM63qVaSZ1IUc9G5DT1jia/IZDVgKkUvCyugv6TOlaCGLMaHgZm3utnV5g2FiOA==
+desn-ui@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/desn-ui/-/desn-ui-0.1.1.tgz#f0e863131fe6afbdae134419477e6447ffc99ff6"
+  integrity sha512-IplljvtdZjiVUvAkOSDumCTxWlL6VIFl45GRQFrxvCbtQARML68Xyz0lTGd4s/R6RNYIIYjCkpqvCRQ+4acwmQ==
 
 doctypes@^1.1.0:
   version "1.1.0"
