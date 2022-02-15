@@ -1,16 +1,18 @@
 <template>
-  <div class = "components-wrapper">
-    <h2 class = "components-h2">
-    {{ title }}
+  <div class="components-wrapper">
+    <h2 class="components-h2">
+      {{ title }}
     </h2>
-    <div class = "components-demo">
-      <div class = "component-instance">
-        <component :is = "component" />
+    <div class="components-demo">
+      <div class="component-instance">
+        <component :is="component" />
       </div>
-      <Button class = "showCode" level = "lesser" @click = "switchCodeVisible">{{ btnText }}</Button>
+      <Button class="showCode" level="lesser" @click="switchCodeVisible">
+        {{ btnText }}
+      </Button>
     </div>
-    <transition name = "code">
-      <div v-if = "codeVisible" class = "components-code">
+    <transition name="code">
+      <div v-if="codeVisible" class="components-code">
         <pre v-highlight>
           <code>{{ code }}</code>
         </pre>
@@ -19,58 +21,58 @@
   </div>
 </template>
 
-<script lang = "ts" setup>
-  import { computed, ref, onMounted } from 'vue';
-  import { Button } from 'desn-ui';
+<script lang="ts" setup>
+  import { computed, ref, onMounted } from 'vue'
+  import { Button } from 'desn-ui'
 
   const props = defineProps({
     title: {
       type: String,
-      required: true
+      required: true,
     },
     component: {
       type: Object,
-      required: true
+      required: true,
     },
     code: {
       type: String,
-      required: true
+      required: true,
     },
-  });
-  const codeVisible = ref(false);
+  })
+  const codeVisible = ref(false)
   const switchCodeVisible = () => {
-    codeVisible.value = !codeVisible.value;
-  };
+    codeVisible.value = !codeVisible.value
+  }
 
   const btnText = computed(() => {
-    return codeVisible.value ? '隐藏代码' : '查看代码';
-  });
-    onMounted(() => {
-        window.scroll(0,0)
+    return codeVisible.value ? '隐藏代码' : '查看代码'
+  })
+  onMounted(() => {
+    window.scroll(0, 0)
   })
 </script>
 
-<style lang = "scss" scoped>
+<style lang="scss" scoped>
   .components-h1 {
     font-size: 32px;
   }
 
   .components-wrapper {
     line-height: 1;
-    border: 1px solid #EEE;
-    border-radius: 6px;
     margin-top: 24px;
     padding: 12px;
+    border: 1px solid #eeeeee;
+    border-radius: 6px;
 
     > .components-h2 {
-      margin-top: 8px;
       font-size: 20px;
+      margin-top: 8px;
     }
 
     > .components-demo {
       margin: 16px 0 0 0;
       padding: 24px 0 0 0;
-      border-top: 1px solid #EEE;
+      border-top: 1px solid #eeeeee;
 
       > .component-instance {
         > :deep(div) {
@@ -78,6 +80,7 @@
             margin: 0 12px 12px 0;
           }
         }
+
         > :deep(*) {
           margin: 0 12px 12px 0;
         }
@@ -90,18 +93,20 @@
     }
 
     > .components-code {
-      border-top: 1px solid #EEE;
-      margin-top: 24px;
       font-size: 12px;
       line-height: 1.8;
+      margin-top: 24px;
+      border-top: 1px solid #eeeeee;
     }
   }
 
-  .code-enter-active, .code-leave-active {
-    transition: all .3s ease-out;
+  .code-enter-active,
+  .code-leave-active {
+    transition: all 0.3s ease-out;
   }
 
-  .code-enter-from, .code-leave-to {
+  .code-enter-from,
+  .code-leave-to {
     opacity: 0;
   }
 </style>
