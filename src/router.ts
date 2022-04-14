@@ -4,6 +4,8 @@ import ButtonDemo from './components/componentList/ButtonDemo.vue';
 import DialogDemo from './components/componentList/DialogDemo.vue';
 import SwitchDemo from './components/componentList/SwitchDemo.vue';
 import TabsDemo from './components/componentList/TabsDemo.vue';
+import MessageDemo from './components/componentList/MessageDemo.vue';
+
 import Markdown from './components/Markdown.vue';
 
 import Doc from './views/Doc.vue';
@@ -32,6 +34,8 @@ export default createRouter({
         { path: 'button', component: ButtonDemo },
         { path: 'dialog', component: DialogDemo },
         { path: 'tabs', component: TabsDemo },
+        { path: 'message', component: MessageDemo },
+
       ]
     },
     { path: '/404', component: Notfound },

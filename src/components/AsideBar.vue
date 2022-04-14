@@ -41,11 +41,12 @@
     { name: 'Button' },
     { name: 'Dialog' },
     { name: 'Tabs' },
+    { name: 'Message' },
   ]
 </script>
 
 <style lang="scss" scoped>
-  @import '../assets/style/helper';
+  @import "../assets/style/helper";
 
   aside {
     position: fixed;
@@ -93,7 +94,7 @@
                 display: block;
                 width: 4px;
                 height: 100%;
-                content: '';
+                content: "";
                 background: $color-highlight;
               }
             }
